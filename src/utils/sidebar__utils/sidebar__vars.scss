@@ -1,0 +1,21 @@
+@import "../mixins";
+
+$button_wrapper_hight: 73px;
+$button_wrapper_width: 82px;
+
+$sidebar_logo_width: 55px;
+$sidebar_logo_height: 55px;
+$sidebar_logo_bgc: rgba(235, 150, 106, 0.26);
+
+$nav_link_width: 56px;
+$nav_link_height: 56px;
+
+$sidebar__nav__logo: 20px;
+
+$sidebar_gap_height: 19px;
+
+$sidebar-width: 96px;
+
+@include onMobile {
+  $sidebar-width: 30px;
+}

@@ -1,0 +1,281 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.product__card {
+  background-color: #fff;
+  width: 100%;
+  transition: 0.3s all;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #E0E0E0;
+  }
+
+  // &:hover {
+  //   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  // }
+
+  &_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // gap: 50px;
+    cursor: pointer;
+    height: 100%;
+    padding: 16px;
+  }
+
+  &_left {
+    display: flex;
+    flex-direction: column;
+    // justify-content: flex-end;
+
+    &__label {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &__weight {
+        background-image: url('../../images/logos/product_weight.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        color: #000;
+      }
+
+      &__text {
+        margin-left: 5px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 100%;
+        color: #000;
+      }
+    }
+
+    &__description {
+      margin-top: 15px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      color: #252323b8;
+
+      @include onMobile {
+        font-size: 18px;
+      }
+
+      @include onMobileMini {
+        font-size: 12px;
+      }
+    }
+
+
+    &__name {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 27px;
+      line-height: 100%;
+      color: #000;
+      // white-space: nowrap;
+      // max-width: 110px;
+
+      &__count {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 27px;
+        line-height: 100%;
+        color: $main-orange;
+        margin-right: 6px;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      @include onMobile {
+        font-size: 20px;
+      }
+    }
+
+    &__price {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      color: $main-orange;
+      margin-top: 11px;
+
+      @include onMobile {
+        font-size: 18px;
+      }
+    }
+
+    &__button {
+      border: none;
+      border-radius: 7px;
+      box-shadow: 0 4px 4px rgba(80, 78, 78, 0.1);
+      background-color: #fff;
+      // margin-top: 14px;
+      padding: 5px 5px;
+      min-width: 50px;
+      // max-width: 100px;
+      height: 30px;
+      margin: auto 0 0 0;
+      align-self: start;
+
+      &_wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 2px;
+      }
+
+      &__like_icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+      }
+
+      &__like_count {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        color: $main-font-color-light;
+        margin-bottom: 3px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    // width: 50%;
+    align-items: center;
+    margin-left: 30px;
+
+    @include onMobileMini {
+      margin-left: 10px;
+    }
+
+    &__image {
+      border-radius: 8px;
+      height: 120px;
+      width: 120px;
+    }
+
+    &__button {
+      // align-self: flex-end;
+      margin-top: 10px;
+      width: 70px;
+      padding: 12px 0 12px 0;
+
+      border: solid 2px #da510f;
+      border-radius: 5px;
+      font-weight: bold;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: 0.2s ease-in-out;
+
+      &__add_icon {
+        background-image: url('../../images/logos/plus_orange.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 15px;
+        height: 15px;
+      }
+
+      &__text {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: #da510f;
+        margin-left: 8px;
+        white-space: nowrap;
+      }
+
+      &:hover {
+        background-color: #da510f;
+        border: solid 1px #da510f;
+
+        .product__card__right__button__text {
+          color: #fff;
+        }
+
+        .product__card__right__button__add_icon {
+          background-image: url('../../images/logos/product_plus_white.svg');
+        }
+      }
+    }
+  }
+}
+
+.button__add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  // align-self: flex-end;
+
+  &__minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 7px;
+    border: 1px solid #E0E0E0;
+  }
+
+  &__count {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000;
+  }
+
+  &__plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 7px;
+    border: 1px solid #E0E0E0;
+
+    &__icon {
+      background-image: url('../../images/logos/plus_icon_gray_thin.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 7px;
+    border: 1px solid #E0E0E0;
+
+    &__icon {
+      background-image: url('../../images/logos/trash-icon.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

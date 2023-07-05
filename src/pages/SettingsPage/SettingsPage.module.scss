@@ -1,0 +1,64 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.settings {
+  &__main {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    gap: 24px;
+    box-sizing: border-box;
+    background-color: $base-color-white;
+    margin-top: 24px;
+
+    @media (min-width: 1200px) {
+      margin: 24px 24px 0 24px;
+      padding-bottom: 24px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+
+    @media (max-height: 700px) {
+      display: block;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+
+    &__title {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      color: #000;
+      -webkit-user-select: none;
+      user-select: none;
+
+      @include onTablet {
+        font-size: 28px;
+      }
+
+      @include onDesktop {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+.gap {
+  display: none;
+
+  @media (max-width: 1200px) {
+    display: block;
+    margin-bottom: 24px;
+  }
+}

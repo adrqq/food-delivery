@@ -1,0 +1,314 @@
+@import '../../../../utils/vars.scss';
+@import '../../../../utils/mixins.scss';
+
+.container {
+  width: 100vw;
+  max-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  z-index: 3;
+  position: absolute;
+  justify-content: flex-end;
+}
+
+.order_second__wrapper {
+  width: 800px;
+  padding: 24px;
+  background: $base-color-dark;
+  display: flex;
+  flex-direction: column;
+
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.order_second {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100vh;
+
+  &__back_button {
+    padding: 5px;
+    background-image: url(../../../../images/logos/Line.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  &__details {
+    background: $base-color-dark;
+    border-right: 1px solid $border-color;
+    // height: 100vh;
+    width: 400px;
+    flex-direction: column;
+    padding: 0 24px;
+    height: 100vh;
+    position: relative;
+
+    &__header {
+      border-bottom: 1px solid #393C49;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+
+      &__title {
+        @include default-font-style;
+        font-size: 28px;
+        line-height: 140%;
+
+        color: $main-font-color;
+      }
+
+      &__number {
+        @include default-font-style;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: $main-font-color-light;
+      }
+
+      &__add_button {
+        background-image: url(../../../../images/logos/plus-white.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 48px;
+        height: 48px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 8px;
+        background-color: $main-orange;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        gap: 8px;
+      }
+    }
+
+    &__main {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+      background-color: $base-color-dark;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      gap: 36px;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &__empty {
+        @include default-font-style;
+        color: #fff;
+      }
+    }
+
+    &__footer {
+      width: 100%;
+      height: 100px;
+      background-color: $base-color-dark;
+      border-top: 1px solid $border-color;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding-top: 24px;
+      padding-bottom: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @media (max-height: 760px) {
+        padding-top: 12px;
+      }
+
+
+      &__info {
+        margin: 0 24px 0 24px;
+      }
+
+      &__discount {
+        display: flex;
+        // align-self: center;
+        justify-content: space-between;
+        flex-direction: row;
+
+        &__title {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 140%;
+          color: #ABBBC2;
+        }
+
+        &__value {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          text-align: right;
+          color: #FFFFFF;
+        }
+      }
+
+      &__total__price {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+
+        &__title {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 140%;
+          color: #ABBBC2;
+        }
+
+        &__value {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          text-align: right;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  &__payment {
+    background: $base-color-dark;
+    ;
+    flex-direction: column;
+    padding: 0 24px;
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-bottom: 24px;
+      gap: 8px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #393C49;
+
+      &__title {
+        @include default-font-style;
+        font-size: 28px;
+        line-height: 140%;
+
+        color: $main-font-color;
+      }
+
+      &__info {
+        @include default-font-style;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: $main-font-color-light;
+      }
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        @include default-font-style;
+        font-size: 20px;
+        line-height: 140%;
+        color: $main-font-color;
+        margin-bottom: 16px;
+        margin-top: 24px;
+      }
+
+      &__choice {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+
+        &__check_mark {
+          position: absolute;
+          width: 28px;
+          height: 28px;
+          right: 0;
+          top: 0;
+          background-image: url(../../../../images/logos/check-mark.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+          display: none;
+
+          &__active {
+            display: block;
+          }
+        }
+
+        &__label {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 65px;
+          border: 1px solid #ABBBC2;
+          border-radius: 8px;
+          cursor: pointer;
+          position: relative;
+        }
+
+        &__input {
+          position: fixed;
+          opacity: 0;
+        }
+
+        &__logo {
+          width: 40px;
+          height: 40px;
+          background-repeat: no-repeat;
+          background-position: center;
+
+
+          &_card {
+            background-image: url(../../../../images/logos/credit-card.svg);
+          }
+
+          &_pp {
+            background-image: url(../../../../images/logos/paypal.svg);
+          }
+
+          &_cash {
+            background-image: url(../../../../images/logos/cash.svg);
+          }
+        }
+
+        &__text {
+          @include default-font-style;
+          font-size: 14px;
+          line-height: 140%;
+          color: $main-font-color;
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+}

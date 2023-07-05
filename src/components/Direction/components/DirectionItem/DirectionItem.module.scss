@@ -1,0 +1,21 @@
+@import '../../../../utils/vars.scss';
+@import '../../../../utils/mixins.scss';
+
+.direction_item {
+
+  &__button {
+
+    &:hover {
+      color: $chili-orange;
+      text-decoration: underline;
+    }
+
+    &__text {
+      text-transform: capitalize;
+    }
+  }
+
+  &__divider {
+    margin: 0 16px;
+  }
+}

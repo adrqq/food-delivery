@@ -1,0 +1,48 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.pc_add_buttons {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 4px;
+  gap: 10px;
+
+  &__button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $light-gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: .2s ease;
+
+    @include onMobileMax {
+      width: 32px;
+      height: 32px;
+    }
+
+    @include onTablet {
+      width: 34px;
+      height: 34px;
+    }
+
+    @include onDesktop {
+      width: 38px;
+      height: 38px;
+    }
+
+    // &__icon {
+    //   // font-size: 50px;
+    // }
+  }
+
+  &__product_count {
+    font-size: 16px;
+    width: 24px;
+    text-align: center;
+  }
+}

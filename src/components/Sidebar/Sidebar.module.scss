@@ -1,0 +1,236 @@
+@import '../../utils/vars.scss';
+@import '../../utils/sidebar__utils/sidebar__vars.scss';
+@import '../../utils/mixins.scss';
+
+.sidebar_container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .3s ease;
+
+  @media (max-width: 1025px) {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 3;
+
+    // @media (max-width: 1025px) {
+    //   display: none;
+    // }
+  }
+}
+
+.sidebar {
+  height: 100%;
+  top: 0;
+  position: fixed;
+  transition: width .3s ease;
+  background-color: #fff;
+  // width: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  border-right: 1px solid $border-color-gray;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  @include ofScrollBarStyle;
+
+  @media (max-width: 1025px) {
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 0;
+    top: auto;
+    bottom: 0;
+    height: 68px;
+    position: fixed;
+    transition: width .3s ease;
+    background-color: #fff;
+    z-index: 4;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+  }
+
+  // @media (min-width: 1025px) {
+  //   .sidebar:hover .sidebar__content__logo__icon__grill {
+  //     background-image: url('./assets/icons/grill-hover.svg');
+  //   }
+
+  //   .sidebar:hover .sidebar__content__logo__icon__soup {
+  //     background-image: url('./assets/icons/soup-hover.svg');
+  //   }
+
+  //   .sidebar:hover .sidebar__content__logo__icon__coffee {
+  //     background-image: url('./assets/icons/coffee-hover.svg');
+  //   }
+
+  //   .sidebar:hover .sidebar__content__logo__icon__hot_dishes {
+  //     background-image: url('./assets/icons/hot-dishes-hover.svg');
+  //   }
+
+  //   .sidebar:hover .sidebar__content__logo__icon__drinks {
+  //     background-image: url('./assets/icons/fresh-drink-hover.svg');
+  //   }
+  // }
+
+  &__open {
+    // width: 160px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    transition: all .3s ease;
+
+    @media (max-width: 1025px) {
+      margin-top: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      // gap: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    &__logo {
+      width: 100%;
+      padding: 4px 8px;
+      margin-bottom: 28px;
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      // transition: all .3s ease;
+
+      // @include onMobileMini {
+      //   margin-top: 12px;
+      // }
+
+      @media (max-width: 1025px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+
+      &__active {
+        background-color: #d7cfcf;
+      }
+
+      // &:hover {
+      //   background-color: #d7cfcf;
+      // }
+
+      &__icon {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 42px;
+        height: 42px;
+        transition: all .5s ease;
+
+        // @include onMobileMini {
+        //   width: 24px;
+        //   height: 24px;
+        // }
+
+        &__grill {
+          background-image: url('./assets/icons/grill.svg');
+
+          &__active {
+            background-image: url('./assets/icons/grill-hover.svg');
+          }
+        }
+
+        &__soup {
+          background-image: url('./assets/icons/soup.svg');
+
+          &__active {
+            background-image: url('./assets/icons/soup-hover.svg');
+          }
+        }
+
+        &__salad {
+          background-image: url('./assets/icons/salad.svg');
+
+          &__active {
+            background-image: url('./assets/icons/salad-hover.svg');
+          }
+        }
+
+        &__appetizer {
+          background-image: url('./assets/icons/appetizer.svg');
+
+          &__active {
+            background-image: url('./assets/icons/appetizer-hover.svg');
+          }
+        }
+
+        &__hot_dishes {
+          background-image: url('./assets/icons/hot-dishes.svg');
+
+          &__active {
+            background-image: url('./assets/icons/hot-dishes-hover.svg');
+          }
+        }
+
+        &__drinks {
+          background-image: url('./assets/icons/fresh-drink.svg');
+
+          &__active {
+            background-image: url('./assets/icons/fresh-drink-hover.svg');
+          }
+        }
+
+        &__desserts {
+          background-image: url('./assets/icons/dessert.svg');
+
+          &__active {
+            background-image: url('./assets/icons/dessert-hover.svg');
+          }
+        }
+      }
+
+      &__text {
+        margin-left: 18px;
+        white-space: nowrap;
+        font-size: 14px;
+
+        // @include onMobileMini {
+        //   font-size: 10px;
+        // }
+
+        @media (max-width: 1025px) {
+          margin: 0;
+        }
+
+        // &__hot_dishes {
+        //   margin-left: 13px;
+        // }
+
+        // &__coffee {
+        //   margin-left: 14px;
+        // }
+
+        // &__soup {
+        //   margin-left: 14px;
+        // }
+      }
+    }
+  }
+}

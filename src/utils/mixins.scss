@@ -1,0 +1,66 @@
+@mixin default-font-style {
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  // line-height: 140%;
+}
+
+@mixin ofScrollBarStyle {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    display: none;
+  }
+}
+
+@mixin onMobileMini {
+  @media (max-width: 467px) {
+    @content;
+  }
+}
+
+@mixin onMobileMax {
+  @media (min-width: 467px) and (max-width: 766px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin onBigDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin is900 {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin is1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}

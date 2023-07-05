@@ -1,0 +1,81 @@
+@import './utils/vars.scss';
+@import './utils/sidebar__utils/sidebar__vars.scss';
+
+#root {
+  margin: 0;
+  font-family: 'Manrope', 'ComicSans' !important;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+  margin: 0;
+  font-family: 'Manrope', Comic Sans MS !important;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app {
+  background-color: $base-color-white;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Barlow', sans-serif;
+
+  &__content {
+    padding: 70px 0 0 0;
+
+    @include onDesktop {
+      padding: 70px 0 0 68px;
+    }
+
+    @include is1024 {
+      padding: 70px 0 68px 0;
+    }
+
+    &__no_padding {
+      padding: 70px 0 0;
+    }
+
+    &_settings {
+      max-height: 100vh;
+      overflow: hidden;
+
+      @media (max-width: 1200px) {
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      @media (max-height: 700px) {
+        max-height: 100%;
+        overflow: auto;
+      }
+    }
+  }
+
+  // &__wrapper {
+  //   display: grid;
+  //   flex-direction: row;
+  //   grid-template-columns: 96px 1fr;
+
+  //   @media (max-width: 466px) {
+  //     grid-template-columns: 1fr;
+  //   }
+
+  //   @media (max-height: 630px) {
+  //     grid-template-columns: 1fr;
+  //   }
+  // }
+}

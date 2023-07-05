@@ -1,0 +1,149 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.burger_menu {
+  z-index: 10;
+  padding: 16px;
+  display: flex;
+  // align-items: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid $border-color-gray;
+  width: 230px;
+  // height: auto;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+
+  &__container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__auth {
+    margin-top: auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include default-font-style;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    color: #FFF;
+    width: 100%;
+    background-color: $main-orange;
+    border-radius: 40px;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+    &__item {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      width: 100%;
+      padding: 4px;
+
+      &__text {
+        @include default-font-style;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        color: rgb(31, 30, 30);
+      }
+    }
+  }
+
+  &__text {
+    @include default-font-style;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    color: black;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+    &__active {
+      color: $main-orange;
+    }
+
+    &__h1 {
+      @include default-font-style;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      color: black;
+      padding-top: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      width: 100%;
+      align-self: start;
+
+      &__active {
+        color: $main-orange;
+      }
+    }
+
+    &__h2 {
+      @include default-font-style;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      color: #000;
+      padding: 16px 0;
+      width: 100%;
+    }
+  }
+
+  &__close {
+
+    &__button {
+      align-self: flex-end;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__icon {
+      margin-top: 5px;
+      margin-right: 16px;
+      scale: 0.6;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__routes {
+    margin-bottom: 50px;
+
+    &__button {
+      width: 100%;
+      @include default-font-style;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      color: black;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+      &__active {
+        color: $main-orange;
+      }
+    }
+  }
+}

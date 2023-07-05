@@ -1,0 +1,29 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.notif {
+  &__wrapper {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    /* see notes below */
+    gap: 16px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+
+    &__title {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 35px;
+      color: #000;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  }
+}

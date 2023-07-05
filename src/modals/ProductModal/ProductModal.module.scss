@@ -1,0 +1,174 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 465px) {
+    overflow-y: auto;
+    height: 100vh;
+  }
+}
+
+.product_modal {
+  background-color: #fff;
+  z-index: 3;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-height: 100%;
+  position: relative;
+
+  @media (min-width: 466px) {
+    width: 400px;
+    height: 80vh;
+    border-radius: 15px;
+  }
+
+  &__img {
+    width: 100%;
+    min-height: 200px;
+    height: 40vh;
+    /* Update this value to adjust the height */
+    object-fit: cover;
+    background-image: url('../../images/food_photos/foodPhotoMain.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px solid #fff;
+
+    @media (max-width: 466px) {
+      height: 30vh;
+      /* Adjust the height for smaller resolutions */
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: $main-orange;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    background-image: url('../../images/logos/close-black.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__content {
+    padding: 0 32px 16px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    &__description {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__info {}
+
+      &__text {
+        @include default-font-style;
+        font-size: 16px;
+        font-weight: 400;
+        color: $main-font-color-light;
+        margin-bottom: 16px;
+      }
+
+      &__weight {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &__text {
+          font-size: 16px;
+          font-weight: 400;
+          color: #393C49;
+          margin-right: 16px;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: 600;
+      color: $main-creamy-font-color;
+      margin-bottom: 16px;
+    }
+
+    &__price {
+      font-size: 24px;
+      font-weight: 600;
+      color: $main-orange;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    &__description__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      position: sticky;
+      bottom: 0;
+
+      &__add {
+        @include default-font-style;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        background-color: $main-orange;
+        cursor: pointer;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+
+        @media (min-width: 466px) {
+          width: auto;
+        }
+      }
+
+      &__like {
+        @include default-font-style;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 15%;
+      }
+    }
+  }
+}

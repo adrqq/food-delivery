@@ -1,0 +1,285 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.product_page {
+  height: 100%;
+  padding-bottom: 40px;
+}
+
+.product {
+  padding: 0 16px;
+  display: flex;
+  flex: auto auto;
+  flex-direction: column;
+  min-height: 600px;
+  height: auto;
+  background-color: #fff;
+
+  @include onMobileMini {
+    min-height: 700px;
+  }
+
+  @include onTablet {
+    margin: 0 40px;
+    margin-top: 32px;
+
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, .08);
+  }
+
+  @include onDesktop {
+    margin: 0 40px;
+    margin-top: 32px;
+
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, .08);
+    flex-direction: row;
+  }
+
+  &__image__wrapper {
+    // position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include onDesktop {
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    // max-width: 460px;
+    // height: auto;
+
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    // justify-content: space-between;
+
+    @include onDesktop {
+      width: 50%;
+    }
+
+    &__name {
+      font-size: 18px;
+      font-weight: 700;
+      color: $main-font-color;
+      margin-bottom: 8px;
+
+      @include onDesktop {
+        font-size: 32px;
+      }
+    }
+
+    &__ingredients {
+      line-height: 20px;
+      max-height: 60px;
+      min-height: 20px;
+      // overflow-y: hidden;
+      margin-top: 12px;
+
+      font-weight: 500;
+      font-size: 14px;
+      color: $main-font-color-light;
+
+      &__weight {
+        font-weight: 700;
+        color: $chili-orange;
+
+        @include onDesktop {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &__description {
+      font-weight: 500;
+      font-size: 14px;
+      color: $main-font-color-light;
+      line-height: 20px;
+
+      @include onDesktop {
+        font-size: 18px;
+      }
+    }
+
+    &__good_with {
+      margin: 24px auto;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    &__carousel {
+      // grid-column: 1 / -1;
+      // display: flex;
+      // gap: 18px;
+      // contain: content;
+      // flex-direction: row;
+      // justify-content: center;
+      // align-items: center;
+      max-width: 100%;
+      /* Set a maximum width for the carousel container */
+      margin: 0 auto;
+      margin-bottom: 36px;
+    }
+
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+
+      @include onDesktop {
+        justify-content: flex-start;
+      }
+
+      &__button {
+        width: 92px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: $chili-orange;
+        background-color: $ninja-yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include onDesktop {
+          width: 158px;
+          height: 48px;
+        }
+
+        @include onMobileMax {
+          width: 124px;
+          height: 48px;
+        }
+
+        @include onMobileMini {
+          width: 98px;
+          height: 42px;
+          font-size: 12px;
+        }
+
+        &__icon {
+          margin-right: 10px;
+        }
+
+        &__text {
+          font-weight: 700;
+          color: #fff;
+
+          @include onDesktop {
+            font-size: 18px;
+          }
+        }
+      }
+
+      &__price {
+        font-weight: 700;
+        font-size: 18px;
+        color: $main-font-color;
+        white-space: nowrap;
+
+        @include onDesktop {
+          font-size: 24px;
+          margin-left: 20px;
+        }
+
+        @include onMobileMini {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.product_card_mini {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  // min-height: 200px;
+  display: inline-block;
+  /* Display slides horizontally */
+  // margin: 10px;
+  /* Add spacing between slides */
+  text-align: center;
+  // width: 120px;
+
+  // @include onMobileMini {
+  //   width: 80px;
+  // }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__name {
+      color: #000;
+      font-weight: 600;
+      font-size: 12px;
+    }
+  }
+
+  &__image__wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    // overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 120px;
+    height: 100%;
+    object-fit: contain;
+
+    @include onMobileMini {
+      max-width: 80px;
+    }
+  }
+}
+
+.swiper_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    &__arrow {
+      border-radius: 100%;
+      background-color: $light-gray;
+      height: 30px;
+      width: 30px;
+      transform: scale(0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__right {
+        transform: scale(-1);
+      }
+    }
+  }
+}

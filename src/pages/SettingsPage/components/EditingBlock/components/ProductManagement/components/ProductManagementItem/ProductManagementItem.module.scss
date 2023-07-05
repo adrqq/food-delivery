@@ -1,0 +1,142 @@
+@import '../../../../../../../../utils/vars.scss';
+@import '../../../../../../../../utils/mixins.scss';
+
+.product_card {
+  width: 100%;
+  height: 100%;
+  margin-bottom: $gutter;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  flex-shrink: 0;
+  border-radius: 20px;
+
+  &:hover {
+    box-shadow: 0 2px 40px 0 rgba(0, 0, 0, .12);
+  }
+
+  &__like_button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid $ninja-yellow;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__icon {
+      margin-top: 2px;
+      width: 24px;
+      right: 24px;
+    }
+  }
+
+  &__image__wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    // min-height: 300px;
+    max-height: 500px;
+  }
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &__name {
+      font-size: 18px;
+      font-weight: 700;
+      color: $main-font-color;
+      margin-bottom: 8px;
+    }
+
+    &__ingredients {
+      line-height: 20px;
+      min-height: 20px;
+      margin-top: 12px;
+      padding-bottom: 30px;
+
+      font-weight: 500;
+      font-size: 14px;
+      color: $main-font-color-light;
+
+      &__weight {
+        font-weight: 700;
+        color: $chili-orange;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      background: rgba(234, 124, 105, 0.26);
+      height: 70px;
+      border-radius: 20px;
+
+      &__button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        gap: 10px;
+
+        &:hover {
+          background: rgba(234, 124, 105, 0.5);
+          border-radius: 20px;
+        }
+
+        &__icon {
+          width: 26px;
+        }
+
+        &__text {
+          font-weight: 700;
+          font-size: 14px;
+          color: $main-font-color;
+        }
+      }
+
+      &__price {
+        font-weight: 700;
+        font-size: 12px;
+        color: $main-font-color;
+        white-space: nowrap;
+
+        @include onMobileMini {
+          margin-left: 5px;
+        }
+
+        @include onMobileMax {
+          font-size: 16px;
+        }
+
+        @include onTablet {
+          font-size: 18px;
+        }
+
+        @include onDesktop {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

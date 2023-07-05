@@ -1,0 +1,44 @@
+@import './utils/reset.css';
+
+/* body {
+  margin: 0;
+  font-family: 'e-Ukraine', sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+/* @media (max-width: 768px) {
+  html {
+    font-size: 2px;
+  }
+} */
+
+@media (min-width: 320px) and (max-width: 769px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1444px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1445px) {
+  html {
+    font-size: 14px;
+  }
+}

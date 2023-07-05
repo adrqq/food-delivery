@@ -1,0 +1,362 @@
+@import '../../../../utils/vars.scss';
+@import '../../../../utils/mixins.scss';
+
+.editing__block {
+  height: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  width: auto;
+  max-height: 530px;
+  min-height: 530px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 24px;
+    max-height: 100%;
+    min-height: 100%;
+    overflow: auto;
+  }
+
+  @media (max-height: 700px) {
+    margin-top: 24px;
+    max-height: 100%;
+    min-height: 100%;
+    overflow: auto;
+  }
+
+  @include onMobileMini {
+    margin: 0;
+  }
+
+  &__header {
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px;
+
+      &__title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.5625rem;
+        color: #000;
+      }
+
+      &__selector {
+        height: 40px;
+        width: 99px;
+        color: $main-font-color;
+        background-color: $base-color-dark;
+        border: 1px solid $border-color;
+
+        border-radius: 8px;
+        padding: 9px 0.75rem 8px 2.5rem;
+
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        cursor: pointer;
+
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 130%;
+
+        &__wrapper {
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 38%;
+            left: 0.9375rem;
+            transform: translateX(-50%);
+            pointer-events: none;
+
+            display: block;
+
+            width: 0.1875rem;
+            height: 0.1875rem;
+
+            border: solid $main-font-color;
+            border-width: 0 0.1875rem 0.1875rem 0;
+            display: inline-block;
+            padding: 0.1875rem;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__main {
+    margin: 24px;
+
+    &__container {
+      padding-top: 10px;
+      height: 50vh;
+      display: grid;
+      gap: 4.475rem;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin-bottom: 50px;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__new__item {
+      height: 340px;
+      min-width: 200px;
+      // max-width: 390px;
+      border: 1px dashed #EA7C69;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__text {
+
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: #EA7C69;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      &__button {
+        &__icon {
+          background-image: url(../../../../images/logos/plus_icon_orange_thin.svg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+
+    &__item {
+      height: 340px;
+      min-width: 200px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 0;
+      }
+
+      &__photo {
+        background-image: url(../../../../images/food_photos/foodPhoto.png);
+        width: 150px;
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        align-self: center;
+      }
+
+      &__title {
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        color: #000;
+      }
+
+      &__description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        &__dot {
+          color: #fff;
+        }
+
+        &__price {
+
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.125rem;
+          color: #000;
+        }
+
+        &__count {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.125rem;
+          color: #000;
+        }
+      }
+
+      &__button {
+        background-color: #6e433c;
+        width: 100%;
+        height: 82px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        &__icon {
+          background-image: url(../../../../images/logos/pencil.svg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: 2rem;
+          height: 2rem;
+        }
+
+        &__text {
+
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.125rem;
+          color: #EA7C69;
+          width: 2rem;
+        }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 6px;
+
+      &__button {
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: 1px solid #EA7C69;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__discard {
+          &__text {
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.125rem;
+            color: #EA7C69;
+          }
+        }
+
+        &__save {
+          background-color: #EA7C69;
+          border: none;
+          box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.4);
+
+          &__text {
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.editing__block__main__buttons__button__save__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #fff;
+}
+
+.editing__block__nav {
+  padding: 0 28px;
+}
+
+.header__nav {
+  margin-top: 24px;
+  border-bottom: 1px #3b3b3b solid;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    gap: 3px;
+    contain: content;
+    flex-direction: row;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+
+  &__item {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 140%;
+    color: $main-font-color;
+
+    &__button {
+      padding: 8px 3px;
+      border: none;
+      background: none;
+      color: $main-font-color;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      line-height: 140%;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.3s ease-in-out;
+
+      &__active {
+        color: $main-orange;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 3px;
+          background: $main-orange;
+          border-radius: 3px;
+          width: 2.5rem;
+          margin-top: 0.3rem;
+          animation: slide 0.3s ease-in-out;
+
+
+          @keyframes slide {
+            0% {
+              transform: translateY(100%);
+            }
+
+            100% {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 2.5rem;
+    }
+  }
+}

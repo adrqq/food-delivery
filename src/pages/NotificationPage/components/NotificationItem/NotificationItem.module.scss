@@ -1,0 +1,84 @@
+@import '../../../../utils/vars.scss';
+@import '../../../../utils/mixins.scss';
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+
+  // @include onDesktop {
+  //   height: $hight-without-el-desktop;
+  // }
+
+  &__order {
+    background-color: #e2dede;
+    border-radius: 8px;
+    padding: 16px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+    &__name {
+      font-weight: 800;
+      font-size: 18px;
+      padding: 10px;
+      color: #000;
+      height: max-content;
+      width: max-content;
+      align-self: center;
+      background-color: $bg-white;
+      justify-content: center;
+      align-items: center;
+      border-radius: 22px;
+      margin-bottom: 10px;
+    }
+
+    &__main {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+
+
+      &__title {
+        justify-self: center;
+        align-self: center;
+        border-radius: 12px;
+        margin-top: 10px;
+        font-weight: 800;
+        font-size: 18px;
+        padding: 10px;
+        color: #000;
+        height: max-content;
+        width: max-content;
+        background-color: #f8f4f4;
+      }
+
+      &__wrapper {
+        height: 100%;
+        margin: 16px;
+        background-color: #f8f4f4;
+      }
+
+      &__info {
+        &__item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          padding: 10px;
+          border-bottom: 1px solid #e2dede;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 100%;
+          color: #000;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+$default-font: 'Manrope';
+$base-color: #252836;
+$base-color-dark: #1F1D2B;
+$main-orange: #ee6344;
+$border-color: #131416;
+$main-font-color: #000;
+$main-creamy-font-color: #F2F2F2;
+$main-font-color-light: #79858b;
+$modal-background-color: #fff;
+$hover-color: #F2F2F2;
+$default-bg: #fff;
+$sidebar-icon-color: #434a4f;
+$description-font: gray;
+$light-gray: rgba(26, 26, 26, 0.04);
+$base-color-white: #F8F8F8;
+$border-color-gray: #E0E0E0;
+$box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
+$chili-orange: #da510f;
+$ninja-yellow: #ffc700;
+$ninja-green: #84c502;
+$bg-white: #ffffff;
+$font-gray: #1A1A1A80;
+
+// Variables
+$container-max-width: 1200px;
+$gutter: 20px;
+$product-width: 300px;
+
+// Media queries breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+
+//size for elements without header and sideBar
+$hight-without-el-mobile: calc(100vh - 70px - 68px);
+$hight-without-el-desktop: calc(100vh - 70px);

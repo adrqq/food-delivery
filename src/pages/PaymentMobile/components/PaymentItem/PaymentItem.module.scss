@@ -1,0 +1,40 @@
+@import '../../../../utils/mixins.scss';
+@import '../../../../utils/vars.scss';
+
+.payment_item {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  color: #000;
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $border-color 1px solid;
+
+  &:first-child {
+    // border-top: none;
+    border-top: $border-color 1px solid;
+    margin-top: 12px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__count {
+    color: #da510f;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-weight: 600;
+  }
+}

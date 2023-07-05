@@ -1,0 +1,326 @@
+@import '../../../../../../utils/vars.scss';
+
+
+.editing__block__main {
+  margin: 24px;
+
+  &__container {
+    padding-top: 10px;
+    display: grid;
+    gap: 68px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: 50px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__new__item {
+    height: auto;
+    min-width: 200px;
+    border: 1px dashed #EA7C69;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__empty {
+      min-height: 500px;
+    }
+
+    &__text {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      color: #EA7C69;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    &__button {
+
+
+      &__icon {
+        background-image: url(../../../../../../images/logos/plus_icon_orange_thin.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__item {
+    height: 340px;
+    min-width: 200px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px 0;
+    }
+
+    &__photo {
+      background-image: url(../../../../../../images/food_photos/foodPhoto.png);
+      width: 150px;
+      height: 150px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      align-self: center;
+    }
+
+    &__title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center;
+      color: #000;
+    }
+
+    &__description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      &__dot {
+        color: #000;
+      }
+
+      &__price {
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #000;
+      }
+
+      &__count {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #000;
+      }
+    }
+
+    &__button {
+      background-color: #6e433c;
+      width: 100%;
+      height: 82px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &__icon {
+        background-image: url(../../../../../../images/logos/pencil.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 28px;
+        height: 28px;
+      }
+
+      &__text {
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #EA7C69;
+        width: 28px;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 6px;
+
+    @media (max-width: 1024px) {
+      padding-bottom: 24px;
+    }
+
+    &__button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid #EA7C69;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__discard {
+        &__text {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          color: #EA7C69;
+        }
+      }
+
+      &__save {
+        background-color: #EA7C69;
+        border: none;
+        box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.4);
+
+        &__text {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.editing__block__header {
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+    &__title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      color: white;
+    }
+
+    &__selector {
+      height: 40px;
+      width: 99px;
+      color: $main-font-color;
+      background-color: #fff;
+      border: 1px solid $border-color;
+
+      border-radius: 8px;
+      padding: 9px 12px 8px 40px;
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      cursor: pointer;
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 130%;
+
+      &__wrapper {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 32%;
+          left: 15px;
+          transform: translateX(-50%);
+          pointer-events: none;
+
+          display: block;
+
+          width: 3px;
+          height: 3px;
+
+          border: solid $main-font-color;
+          border-width: 0 3px 3px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+.editing__block__nav {
+  padding: 0 24px;
+}
+
+.header__nav {
+  margin-top: 24px;
+  border-bottom: 1px #3b3b3b solid;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    gap: 3px;
+    contain: content;
+    flex-direction: row;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+
+  &__item {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 140%;
+    color: $main-font-color;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &__button {
+      padding: 8px 0 18px 6px;
+      border: none;
+      background: none;
+      color: $main-font-color;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 140%;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.3s ease-in-out;
+
+      &__active {
+        color: $main-orange;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 3px;
+          background: $main-orange;
+          border-radius: 3px;
+          width: 36px;
+          margin-top: 4.8px;
+          animation: slide 0.3s ease-in-out;
+
+          @keyframes slide {
+            0% {
+              transform: translateY(100%);
+            }
+
+            100% {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 40px;
+    }
+  }
+}

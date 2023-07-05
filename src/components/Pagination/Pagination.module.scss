@@ -1,0 +1,116 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+.pagination {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 18px;
+
+  &__section {
+    margin-right: 16px;
+  }
+
+  &__box {
+    background-color: #fff;
+    border: 1px solid $border-color;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: $border-color;
+    margin-bottom: 4px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  &__page {
+    box-sizing: border-box;
+    // width: 128px;
+    // height: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: $main-orange;
+    margin-right: 12px;
+    padding: 12px;
+    outline: none;
+    border: 0px;
+
+
+    &_sort {
+      color: $main-orange;
+      font-size: 14px;
+      line-height: 120%;
+    }
+
+    width: 117px;
+
+    @include onTablet {
+      width: 217px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 30px;
+    color: $main-orange;
+    transition: color 0, 5s;
+    font-style: normal;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    text-decoration: none;
+  }
+
+  &__button {
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    width: 32px;
+    height: 32px;
+    margin: 0 2px;
+    transition: background-color 0.5s;
+    border-radius: 8px;
+
+
+    &_left_right {
+      margin: 0 14px;
+      border: 1px solid $border-color;
+    }
+
+    // &:hover {
+    //   background-color: $main-orange;
+    // }
+  }
+
+  &__active {
+    background-color: $main-orange;
+    color: $base-color-dark;
+    border-radius: 8px;
+    height: 100%;
+  }
+
+  // &__disabled :hover {
+  //   background-color: #EA7C69;
+  //   color: $main-orange;
+  // }
+}
+
+.arrow__right {
+  transform: scale(-1) scale(0.7);
+}
+
+.arrow__left {
+  transform: scale(0.7);
+}

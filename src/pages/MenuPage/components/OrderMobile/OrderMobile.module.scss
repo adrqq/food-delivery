@@ -1,0 +1,275 @@
+// @import '../../../../utils/vars.scss';
+@import '../../../../utils/vars.scss';
+@import '../../../../utils/mixins.scss';
+
+
+.order__mobile {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: flex-start;
+
+  // @media (max-width: 768px) {
+  //   background-color: #fff;
+  // }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    border-radius: 8px;
+    // height: 100vh;
+    width: 600px;
+
+    @media (max-width: 768px) {
+      width: 90vw;
+    }
+
+    &__container {
+      // min-height: calc(100vh - 36px - 24px - 24px - 24px);
+      // width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 8px;
+      background-color: #fff;
+      border: 1px solid #E0E0E0;
+      margin-bottom: 24px;
+      // border: 1px solid #E0E0E0;
+    }
+
+    &__product_card {
+      // padding: 12px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #E0E0E0;
+      }
+    }
+
+    &__price {
+      background-color: #f8f8f8;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      // border-bottom: 1px solid $border-color;
+
+      &__text {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        color: #222;
+      }
+
+      &__count {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        color: #f17337;
+      }
+    }
+
+    &__cutler {
+      display: flex;
+      background-color: #fff;
+      width: 100%;
+      padding: 24px;
+      justify-content: space-between;
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+
+      @include onMobile {
+        padding: 12px;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      &__logo {
+        background-image: url('../../../../images/logos/cutler.svg');
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      &__text {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        color: black;
+        margin-left: 5px;
+      }
+
+      &__description {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 100%;
+        color: gray;
+        white-space: pre-wrap;
+      }
+
+      &__button {
+        background-color: #fff;
+        padding: 16px;
+        border: 1px solid #E0E0E0;
+        border-radius: 8px;
+        max-height: 70px;
+
+        &__active {
+          background-color: #da510f;
+        }
+
+        &__logo {
+          width: 16px;
+          height: 16px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          transition: 0.3s all;
+
+          &__plus {
+            background-image: url('../../../../images/logos/plus-black.svg');
+          }
+
+          &__check {
+            background-image: url('../../../../images/logos/check-mark-white.svg');
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+
+    &__actions {
+      background-color: #fff;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 24px;
+      // border-bottom: 1px solid $border-color;
+
+      &__button {
+        background-color: #fff;
+        padding: 16px;
+        border: 1px solid #E0E0E0;
+        border-radius: 8px;
+        width: 100%;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        &__text {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 100%;
+          color: #222;
+        }
+
+        &__logo {
+          background-image: url('../../../../images/logos/plus-black.svg');
+          width: 18px;
+          height: 18px;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
+    &__button {
+      width: 90%;
+      height: 40px;
+      border-radius: 8px;
+      background-color: #da510f;
+      position: sticky;
+      bottom: 24px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 24px;
+      padding: 10px;
+      // padding-top: auto;
+
+      &__text {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        color: white;
+      }
+    }
+  }
+
+  &__header {
+    width: 100%;
+    padding: 24px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $base-color-white;
+    gap: 18px;
+    box-shadow: 0 0 32px rgba(0,0,0,.1);
+
+    &__text {
+      &__main {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.8rem;
+        line-height: 100%;
+        color: black;
+        margin-bottom: 7px;
+      }
+
+      &__second {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 100%;
+        color: gray;
+      }
+    }
+
+    &__back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #da510f;
+      padding: 6px 10px;
+      border-radius: 8px;
+
+      &__image {
+        background-image: url('../../../../images/logos/arrow-left-white.svg');
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}
