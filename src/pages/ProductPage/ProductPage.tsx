@@ -213,7 +213,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <div className={s.product_card_mini__content__name}>Пундик мами анатолія</div>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -229,7 +229,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <div className={s.product_card_mini__content__name}>Пундик мами анатолія</div>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -245,7 +245,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <div className={s.product_card_mini__content__name}>Пундик мами анатолія</div>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -261,7 +261,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <div className={s.product_card_mini__content__name}>Пундик мами анатолія</div>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -277,7 +277,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <div className={s.product_card_mini__content__name}>Пундик мами анатолія</div>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -293,7 +293,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <span className={s.product_card_mini__content__name}>Пундик мами анатолія</span>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -309,7 +309,7 @@ export const ProductPage: React.FC = () => {
                   </div>
 
                   <div className={s.product_card_mini__content}>
-                    <span className={s.product_card_mini__content__name}>Пундик мами анатолія</span>
+                    <div className={s.product_card_mini__content__name}>Добавка...</div>
                   </div>
                 </div>
               </SwiperSlide>

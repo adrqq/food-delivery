@@ -97,7 +97,10 @@ export const Login: React.FC = () => {
       <div className={s.auth__form}>
         <form
           className={s.auth__form__content}
-          onSubmit={handleLogin}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
         >
           <div className={s.auth__form__content__title}>
             Логін
