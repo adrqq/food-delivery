@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from 'axios';
 import $api from '../../http';
 import { AuthResponse } from '../../models/response/AuthResponse';
 
-// const API_URL = 'http://localhost:5000';
-const API_URL = 'https://food-delivery-server-1.onrender.com';
+const API_URL = 'http://localhost:5000';
+// const API_URL = 'https://food-delivery-server-1.onrender.com';
 
 export default class AuthService {
   static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {

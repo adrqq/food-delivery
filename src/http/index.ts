@@ -5,8 +5,8 @@
 /* eslint-disable no-param-reassign */
 import axios from 'axios';
 
-// const BASE_URL = 'http://localhost:5000';
-const BASE_URL = 'https://food-delivery-server-1.onrender.com';
+const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'https://food-delivery-server-1.onrender.com';
 
 const $api = axios.create({
   withCredentials: true,
