@@ -58,6 +58,11 @@
     object-fit: contain;
     // min-height: 300px;
     max-height: 500px;
+
+    &__dummy {
+      width: 100%;
+      height: 300px;
+    }
   }
 
   &__content {

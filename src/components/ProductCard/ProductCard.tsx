@@ -116,11 +116,17 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       onClick={handleProductClick}
     >
       <div className={s.product_card__image__wrapper}>
-        <img
-          src={`data:image/jpeg;base64,${image as string || ''}`}
-          alt="product"
-          className={s.product_card__image}
-        />
+        {image ? (
+          <img
+            src={`data:image/jpeg;base64,${image as string || ''}`}
+            alt="product"
+            className={s.product_card__image}
+          />
+        ) : (
+          <div
+            className={s.product_card__image__dummy}
+          />
+        )}
       </div>
 
       <div className={s.product_card__content}>
