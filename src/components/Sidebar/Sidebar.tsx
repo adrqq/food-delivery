@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import { logout } from '../../features/users/usersSlice';
 import { SelectedPage } from '../../types/selectedPage';
-import { setSelectedPage } from '../../features/main/mainSlice';
 import { ProductCategory } from '../../types/products';
 
 import { setFilter } from '../../features/products/productsSlice';
@@ -30,12 +29,6 @@ export const Sidebar: React.FC = () => {
   const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
   const searchQuery = useAppSelector((state) => state.products.searchQuery);
   const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
-
-  const selectedPage = useAppSelector((state) => state.main.selectedPage);
-
-  const handlePageChange = (page: SelectedPage) => {
-    dispatch(setSelectedPage(page));
-  };
 
   const handleLogOut = () => {
     dispatch(logout());

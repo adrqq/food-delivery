@@ -3,8 +3,7 @@ import { EditingBlock } from './components/EditingBlock';
 import { SelectorBar } from './components/SelectorBar';
 import s from './SettingsPage.module.scss';
 import { useAppDispatch } from '../../app/hooks';
-import { setSelectedPage, setPagePath } from '../../features/main/mainSlice';
-import { SelectedPage } from '../../types/selectedPage';
+import { setPagePath } from '../../features/main/mainSlice';
 import { Direction } from '../../components/Direction';
 import { PagePath } from '../../types/PagePath';
 
@@ -13,7 +12,6 @@ export const SettingsPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(setPagePath(PagePath.SETTINGS));
-    dispatch(setSelectedPage(SelectedPage.SETTINGS));
   });
 
   return (

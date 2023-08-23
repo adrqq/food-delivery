@@ -32,7 +32,7 @@ export const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleContinueWithoutLogin = () => {
-    navigate(PagePath.HOME, { replace: true });
+    navigate(PagePath.MENU, { replace: true });
   };
 
   const handleNavigateRegister = () => {
@@ -83,7 +83,7 @@ export const Login: React.FC = () => {
 
         // window.location.reload();
 
-        navigate(PagePath.HOME, { replace: true });
+        navigate(PagePath.MENU, { replace: true });
       }
     });
   };

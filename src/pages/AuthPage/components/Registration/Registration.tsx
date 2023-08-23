@@ -44,7 +44,7 @@ export const Registration: React.FC = () => {
   const navigate = useNavigate();
 
   const handleContinueWithoutLogin = () => {
-    navigate(PagePath.HOME, { replace: true });
+    navigate(PagePath.MENU, { replace: true });
   };
 
   const handleRegister = async () => {

@@ -22,7 +22,7 @@ export const OrderMobile = () => {
   const localStorageCart = useAppSelector((state) => state.products.localStorageCart);
 
   const handlePaymentOpen = () => {
-    navigate(PagePath.HOME__PAYMENT_MOBILE);
+    navigate(PagePath.PAYMENT_MOBILE);
   };
 
   const handleOrderMobileClose = () => {

@@ -121,30 +121,16 @@ export const HeaderDesktop: React.FC = () => {
       }}
     >
       <div className={s.header__desktop__wrapper}>
-        {/* <img
-          src={dycatLogo}
-          alt="dycatLogo"
-          className={`${s.header__desktop__logo__dycat}`}
-        /> */}
-
         <button
           type="button"
           className={s.header__desktop__title}
-          onClick={() => handlePageChange(PagePath.HOME)}
+          onClick={() => handlePageChange(PagePath.MENU)}
         >
           {brandName}
         </button>
 
         {onDesktop && (
           <div className={s.header__desktop__routing}>
-            <button
-              className={s.header__desktop__routing__button}
-              type="button"
-              onClick={() => handlePageChange(PagePath.HOME)}
-            >
-              <p>Головна</p>
-            </button>
-
             <button
               className={s.header__desktop__routing__button}
               type="button"

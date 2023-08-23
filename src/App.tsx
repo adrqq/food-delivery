@@ -34,16 +34,7 @@ import { OrderMobile } from './pages/MenuPage/components/OrderMobile';
 import { PagePath } from './types/PagePath';
 
 import {
-  getProductsStart,
-  getProductsSuccess,
-  getProductsFailure,
-  setProductsLength,
-  setErrorText,
-  setSearchQuery,
   setLocalStorageCart,
-  setUserCart,
-  setIsProductsLoading,
-  setSelectedProduct,
   calculateCartInfo,
 } from './features/products/productsSlice';
 import { AuthPage } from './pages/AuthPage';
@@ -58,7 +49,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { PaymentMobile } from './pages/PaymentMobile';
 import { Example } from './hooks';
 import { SidebarMobile } from './components/SidebarMobile';
-import { HomePage } from './pages/HomePage';
+// import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { getAndSetUserCartUtil } from './utils/functions/getAndSetUserCartUtil';
 import { NotificationPage } from './pages/NotificationPage';
@@ -68,6 +59,7 @@ import { Registration } from './pages/AuthPage/components/Registration';
 import { EditProduct } from './pages/SettingsPage/components/EditingBlock/components/EditProduct';
 import { LogOutModal } from './modals/LogOutModal';
 import { ActivationPage } from './pages/ActivationPage';
+import { AppRouter } from './components/AppRouter';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -151,188 +143,7 @@ function App() {
       <OrderSecondStage />
       {isProductModalOpen && <ProductModal />}
       {isLogOutModalOpen && <LogOutModal />}
-      <Routes>
-        <Route
-          path="*"
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <NotFoundPage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route path="/" element={<Navigate to={PagePath.HOME} replace />} />
-        <Route path={PagePath.SETTINGS} element={<Navigate to={PagePath.SETTINGS__SECURITY} />} />
-        <Route path={PagePath.AUTH} element={<Navigate to={PagePath.LOGIN} />} />
-
-        <Route
-          path={PagePath.HOME}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <HomePage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.MENU}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <MenuPage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.DASHBOARD}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <DashboardPage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.PRODUCT}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <ProductPage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.NOTIFICATIONS}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div>
-                <Header />
-                <div className={s.app__content}>
-                  <NotificationPage />
-                </div>
-              </div>
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.ACTIVATION}
-          element={(
-            <ActivationPage />
-          )}
-        />
-
-        <Route
-          path={PagePath.AUTH}
-          element={(
-            <AuthPage />
-          )}
-        >
-          <Route path=":login" element={<Login />} />
-          <Route path=":registration" element={<Registration />} />
-        </Route>
-
-        <Route
-          path="home/search"
-          element={(
-            <div className={s.app}>
-              <SearchPage />
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.HOME__ORDER_MOBILE}
-          element={(
-            <div className={s.app}>
-              <OrderMobile />
-            </div>
-          )}
-        />
-
-        <Route
-          path={PagePath.HOME__PAYMENT_MOBILE}
-          element={(
-            <div className={s.app}>
-              <PaymentMobile />
-            </div>
-          )}
-        />
-
-        <Route
-          path="home/burger-menu"
-          element={(
-            <div className={s.app}>
-              <BurgerMenu />
-            </div>
-          )}
-        />
-
-        <Route
-          path={`${PagePath.SETTINGS}`}
-          element={(
-            <div className={s.app}>
-              <div className={s.app__wrapper}>
-                {/* <div className={s.app__sidebar}>
-                  <Sidebar />
-                </div> */}
-                <Header />
-                <div className={`${s.app__content} ${s.app__content_settings} ${s.app__content__no_padding}`}>
-                  <SettingsPage />
-                </div>
-              </div>
-            </div>
-          )}
-        >
-          <Route path=":security" element={<Security />} />
-          <Route path=":products-management" element={<ProductManagement />} />
-          <Route path=":products-management/edit-product" element={<EditProduct />} />
-          <Route path=":products-management/create-product" element={<CreateProduct />} />
-        </Route>
-      </Routes>
+      <AppRouter />
     </>
   );
 }

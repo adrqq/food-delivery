@@ -27,7 +27,7 @@ import { setFilter } from '../../features/products/productsSlice';
 // import { calculateCartInfo } from '../../../../features/products/productsSlice';
 
 export const BurgerMenu: React.FC = () => {
-  const [active, setActive] = useState<PagePath>(PagePath.HOME);
+  const [active, setActive] = useState<PagePath>(PagePath.MENU);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -65,21 +65,6 @@ export const BurgerMenu: React.FC = () => {
             src={closeBurger}
             alt="close-burger-menu-icon"
           />
-        </button>
-
-        <button
-          type="button"
-          className={classNames(
-            s.burger_menu__text__h1,
-            [active === PagePath.HOME && s.burger_menu__text__h1__active],
-          )}
-          onClick={() => {
-            handleBurgerMenuClose();
-            handlePageChange(PagePath.HOME);
-            handleActiveBurgerChange(PagePath.HOME);
-          }}
-        >
-          Головна
         </button>
 
         <h2 className={s.burger_menu__text__h2}>

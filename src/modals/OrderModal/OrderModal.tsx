@@ -99,7 +99,7 @@ export const OrderModal: React.FC<Props> = ({ setIsCartModalOpen }) => {
                 type="button"
                 className={s.cart__payment__button}
                 onClick={() => {
-                  handlePageChange(PagePath.HOME__ORDER_MOBILE);
+                  handlePageChange(PagePath.ORDER_MOBILE);
                 }}
               >
                 <p className={s.cart__payment__button__title}>
