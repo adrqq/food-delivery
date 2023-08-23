@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // const BASE_URL = 'http://localhost:5000/products';
-const BASE_URL = 'https://food-delivery-server-1.onrender.com/products';
+const BASE_URL = 'http://16.16.68.28:5000/products';
 
 // const $api = axios.create({
 //   withCredentials: true,
