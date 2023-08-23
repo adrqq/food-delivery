@@ -2,14 +2,13 @@
 @import '../../../../utils/mixins.scss';
 
 .selector__bar {
-  height: max-content;
+  height: calc(100vh - 70px - 58px - 80px);
   border-radius: 8px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 8px;
-  height: 100%;
 
   @media (max-width: 1200px) {
     margin: 24px 24px 0 24px;

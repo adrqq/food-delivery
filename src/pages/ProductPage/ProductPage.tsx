@@ -27,6 +27,7 @@ import { calculateCartInfo } from '../../features/products/productsSlice';
 
 import { addProductToLocalCartUtil } from '../../utils/functions/addProductToLocalCartUtil';
 import { addProductToUserCartUtil } from '../../utils/functions/addProductToUserCartUtil';
+import { PagePath } from '../../types/PagePath';
 
 export const ProductPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -51,7 +52,7 @@ export const ProductPage: React.FC = () => {
       navigate('/home');
     }
 
-    dispatch(setPagePath('/home/product'));
+    dispatch(setPagePath(PagePath.PRODUCT));
   }, []);
 
   const handleNext = () => {

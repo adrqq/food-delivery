@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SelectedPage } from '../../types/selectedPage';
+import { PagePath } from '../../types/PagePath';
 
 const initialState = {
   isOrderMenuOpen: false,
@@ -11,9 +11,8 @@ const initialState = {
   isLogOutModalOpen: false,
   isDeleteProductModalOpen: false,
   isPaymentStage: false,
-  selectedPage: SelectedPage.HOME,
+  pagePath: PagePath.MENU,
   brandName: 'Дукат',
-  pagePath: '/home',
   showAddedNotification: false,
   isBurgerMenuOpen: false,
 };
@@ -24,7 +23,7 @@ export interface MainSliceState {
   isLogOutModalOpen: boolean;
   isDeleteProductModalOpen: boolean;
   isPaymentStage: boolean;
-  selectedPage: SelectedPage;
+  pagePath: PagePath;
   brandName: string;
   showAddedNotification: boolean,
   isBurgerMenuOpen: boolean,
@@ -45,11 +44,7 @@ export const mainSlice = createSlice({
       state.isPaymentStage = action.payload;
     },
 
-    setSelectedPage(state, action: PayloadAction<SelectedPage>) {
-      state.selectedPage = action.payload;
-    },
-
-    setPagePath(state, action: PayloadAction<string>) {
+    setPagePath(state, action: PayloadAction<PagePath>) {
       state.pagePath = action.payload;
     },
 
@@ -75,7 +70,6 @@ export const {
   setOrderMenuOpen,
   setProductModalOpen,
   setPaymentStage,
-  setSelectedPage,
   setPagePath,
   setShowAddedNotification,
   setIsLogOutModalOpen,

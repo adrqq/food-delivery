@@ -13,7 +13,6 @@ import { calculateCartInfo } from '../../features/products/productsSlice';
 
 import {
   setOrderMenuOpen,
-  setSelectedPage,
   setPagePath,
 } from '../../features/main/mainSlice';
 
@@ -31,7 +30,6 @@ export const MenuPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(setPagePath(PagePath.MENU));
-    dispatch(setSelectedPage(SelectedPage.HOME));
   });
 
   const handleOpenOrderMobile = () => {
