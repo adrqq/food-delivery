@@ -27,14 +27,11 @@ import { PagePath } from '../../../../types/PagePath';
 export const Registration: React.FC = () => {
   const [stage, setStage] = useState<Stage>(Stage.LOGIN);
   const [emailRegister, setEmailRegister] = useState<string>('');
-  // const [emailLogin, setEmailLogin] = useState<string>('');
   const [passwordRegister, setPasswordRegister] = useState<string>('');
-  // const [passwordLogin, setPasswordLogin] = useState<string>('');
   const [secondPasswordRegister, setSecondPasswordRegister] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [isShowRegisterPassword, setIsShowRegisterPassword] = useState<boolean>(false);
   const [isShowLoginPassword, setIsShowLoginPassword] = useState<boolean>(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [role, setRole] = useState('user');
 
   const isLoginError = useAppSelector((state) => state.users.isLoginError);
@@ -61,10 +58,6 @@ export const Registration: React.FC = () => {
 
       return;
     }
-
-    // if (registrationErrorType === RegistrationErrorType.EMAIL_ALREADY_EXIST) {
-    //   return;
-    // }
 
     dispatch(setIsUsersLoading(true));
 
@@ -113,7 +106,7 @@ export const Registration: React.FC = () => {
   return (
     <>
       <div className={`${s.auth__form} ${s.register__form}`}>
-        <form className={s.auth__form__content}>
+        <form autoComplete="off" className={s.auth__form__content}>
           <div className={s.auth__form__content__title}>
             Реєстрація
           </div>
@@ -237,29 +230,12 @@ export const Registration: React.FC = () => {
             </div>
           )}
 
-          <div className={s.auth__form__content__options}>
-            <div className={s.auth__form__content__options__remember}>
-              <input
-                className={s.auth__form__content__options__remember__checkbox}
-                type="checkbox"
-              />
-
-              <div className={s.auth__form__content__options__remember__text}>
-                Remember me
-              </div>
-            </div>
-
-            <div className={s.auth__form__content__options__forgot}>
-              Forgot password?
-            </div>
-          </div>
-
           <button
             className={s.auth__form__content__button}
             type="submit"
             onClick={handleRegister}
           >
-            Register
+            Зареєструватися
           </button>
 
           <div className={s.auth__form__continue}>
@@ -269,7 +245,7 @@ export const Registration: React.FC = () => {
               onClick={handleContinueWithoutLogin}
             >
               <span className={s.auth__form__continue__button__text}>
-                Continue without login
+                Продовжити без реєстрації
               </span>
             </button>
           </div>

@@ -5,13 +5,12 @@ import React, { useEffect, useState } from 'react';
 import s from './EditProduct.module.scss';
 import { PagePath } from '../../../../../../types/PagePath';
 import { useAppDispatch, useAppSelector } from '../../../../../../app/hooks';
-import { setPagePath } from '../../../../../../features/main/mainSlice';
+import { setPagePath, setPopupMessage } from '../../../../../../features/main/mainSlice';
 import { ProductModel } from '../../../../../../models/ProductModel';
 import ProductService from '../../../../../../api/services/ProductService';
 import { ProductCategory } from '../../../../../../types/products';
-import { NotificationPopup } from '../NotificationPopup';
+import { NotificationPopup } from '../../../../../../components/NotificationPopup/NotificationPopup';
 import { getAndSetProducts } from '../../../../../../utils/functions/getAndSetProducts';
-import { setProductManageError } from '../../../../../../features/products/productsSlice';
 
 enum InputDataType {
   NAME = 'name',
@@ -43,11 +42,8 @@ export const EditProduct: React.FC = () => {
   const [packageCost, setPackageCost] = useState(product?.packageCost || 0 as number);
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState(null as string | null);
-  const [isSuccess, setIsSuccess] = useState(false as boolean);
 
   const dispatch = useAppDispatch();
-
-  const productManageError = useAppSelector((state) => state.products.productManageError);
 
   useEffect(() => {
     dispatch(setPagePath(PagePath.SETTINGS__MANAGEMENT__CREATE));
@@ -98,74 +94,49 @@ export const EditProduct: React.FC = () => {
 
   const checkData = () => {
     if (name.trim() === '') {
-      dispatch(setProductManageError('Введіть назву продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть назву продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (description.trim() === '') {
-      dispatch(setProductManageError('Введіть опис продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть опис продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (price === 0) {
-      dispatch(setProductManageError('Введіть ціну продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть ціну продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (weight === 0) {
-      dispatch(setProductManageError('Введіть вагу продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть вагу продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (packageCost === 0) {
-      dispatch(setProductManageError('Введіть ціну пакування продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть ціну пакування продукту!',
+        success: false,
+      }));
 
       return false;
     }
-
-    // if (likesCount === 0) {
-    //   setProductManageError('Введіть кількість вподобань продукту!');
-
-    //   setTimeout(() => {
-    //     setProductManageError('');
-    //   }, 2000);
-
-    //   return false;
-    // }
-
-    // if (image === null) {
-    //   dispatch(setProductManageError('Виберіть фото продукту!'));
-
-    //   setTimeout(() => {
-    //     dispatch(setProductManageError(''));
-    //   }, 2000);
-
-    //   return false;
-    // }
 
     return true;
   };
@@ -202,29 +173,25 @@ export const EditProduct: React.FC = () => {
         await ProductService.changeProductImage('image', product.id, image as File);
       }
 
-      dispatch(setProductManageError('Продукт змінено!'));
-      setIsSuccess(true);
+      dispatch(setPopupMessage({
+        text: 'Продукт успішно змінено!',
+        success: true,
+      }));
 
       getAndSetProducts(dispatch, currentPage, itemsPerPage, selectedFilter, searchQuery);
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-        setIsSuccess(false);
-      }, 2000);
     } catch (error) {
       console.log(error);
 
-      dispatch(setProductManageError('Помилка при зміні продукту! Спробуйте ще раз!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Помилка при зміні продукту!',
+        success: false,
+      }));
     }
   };
 
   return (
     <div className={s.create_product}>
-      {productManageError !== '' && <NotificationPopup text={productManageError} success={isSuccess} />}
+      <NotificationPopup />
 
       <header className={s.create_product__header}>
         <h1 className={s.create_product__header__title}>Змінити продукт</h1>

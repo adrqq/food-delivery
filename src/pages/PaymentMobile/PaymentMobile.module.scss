@@ -3,17 +3,13 @@
 @import '../../utils/mixins.scss';
 
 .payment__mobile {
-  min-height: 100vh;
+  height: 100vh;
   background-color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-
-  // @media (max-width: 768px) {
-  //   // background-color: $base-color-white;
-  // }
 
   &__main {
     height: 100vh;
@@ -24,18 +20,14 @@
       height: 40px;
       border-radius: 8px;
       background-color: #da510f;
-      position: sticky;
       bottom: 24px;
-      // width: 100%;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 24px;
-      // padding-left: 24px;
       padding-top: 0;
-
 
       &__text {
         font-family: $default-font;
@@ -54,8 +46,6 @@
 
       &__info {
         background-color: $base-color-white;
-        // border: 1px solid $border-color-gray;
-        // box-shadow: $box-shadow;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -169,14 +159,12 @@
             box-shadow: none;
             width: 100%;
 
-
-            // border-radius: 8px;
             padding: 16px;
             display: flex;
             font-family: $default-font;
             font-style: normal;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 18px;
             line-height: 100%;
             color: #000;
             border-left: none;
@@ -196,7 +184,7 @@
           font-family: $default-font;
           font-style: normal;
           font-weight: 500;
-          font-size: 13px;
+          font-size: 18px;
           line-height: 100%;
           color: #FFF;
           box-shadow: $box-shadow;
@@ -215,7 +203,7 @@
             font-family: $default-font;
             font-style: normal;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 18px;
             line-height: 100%;
             color: #000;
             box-shadow: $box-shadow;
@@ -249,7 +237,6 @@
         flex-direction: column;
         gap: 10px;
 
-
         &__select {
           &__menu {
             width: 100%;
@@ -263,14 +250,13 @@
             display: flex;
             align-items: center;
             height: 48px;
-            padding: 20px;
+            padding: 20px 5px;
             background-color: $bg-white;
             box-shadow: $box-shadow;
             border: 1px solid $border-color-gray;
             justify-content: space-between;
             cursor: pointer;
             border-radius: 8px;
-            // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
             &__active {
               border: 1px solid $main-orange;
@@ -393,7 +379,7 @@
           font-family: $default-font;
           font-style: normal;
           font-weight: 500;
-          font-size: 13px;
+          font-size: 18px;
           line-height: 100%;
           color: #FFF;
 
@@ -412,7 +398,7 @@
             font-family: $default-font;
             font-style: normal;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 18px;
             line-height: 100%;
             color: #FFF;
 
@@ -602,7 +588,7 @@
           font-family: $default-font;
           font-style: normal;
           font-weight: 500;
-          font-size: 13px;
+          font-size: 18px;
           line-height: 100%;
           color: #000;
           box-shadow: $box-shadow;
@@ -623,9 +609,12 @@
             font-family: $default-font;
             font-style: normal;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 18px;
             line-height: 100%;
             color: #000;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 500px;
 
             &:hover {
               border: 1px solid $main-orange;
@@ -707,7 +696,7 @@
         justify-content: space-between;
         background-color: $default-bg;
         min-height: 50px;
-        box-shadow: 0 4px 4px rgba(0,0,0,.05);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
         border: 1px solid #E0E0E0;
         display: flex;
         // align-items: center;
@@ -764,12 +753,6 @@
         }
 
         &__closed {
-          // background-color: $base-color;
-          // min-height: 50px;
-          // border: 1px solid $border-color;
-          // display: flex;
-          // // align-items: center;
-          // padding: 16px;
 
           &__obj {
             display: flex;
@@ -868,7 +851,7 @@
 
     &__container {
       width: 600px;
-      min-height: 100vh;
+      // height: 100vh;
       display: flex;
       flex-direction: column;
       // align-items: center;
@@ -900,7 +883,7 @@
         font-family: $default-font;
         font-style: normal;
         font-weight: 500;
-        font-size: 2.3rem;
+        font-size: 36px;
         line-height: 100%;
         color: #fff;
       }
@@ -909,7 +892,7 @@
         font-family: $default-font;
         font-style: normal;
         font-weight: 500;
-        font-size: 2.3rem;
+        font-size: 36px;
         line-height: 100%;
         color: #f17337;
       }
@@ -946,7 +929,7 @@
         font-family: $default-font;
         font-style: normal;
         font-weight: 500;
-        font-size: 1.4rem;
+        font-size: 22px;
         color: white;
       }
 
@@ -954,7 +937,7 @@
         font-family: $default-font;
         font-style: normal;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 16px;
         line-height: 100%;
         color: gray;
       }
@@ -964,7 +947,6 @@
         padding: 10px;
         border: 1px solid $border-color;
         border-radius: 8px;
-
 
         &__logo {
           background-image: url('../../images/logos/plus-white.svg');
@@ -1001,7 +983,7 @@
           font-family: $default-font;
           font-style: normal;
           font-weight: 500;
-          font-size: 1.4rem;
+          font-size: 22px;
           line-height: 100%;
           color: white;
         }
@@ -1079,8 +1061,6 @@
 }
 
 .card__optional {
-  // width: 100%;
-  // height: 300px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -1088,7 +1068,7 @@
   flex-direction: column;
   background-color: $default-bg;
   min-height: 50px;
-  box-shadow: 0 4px 4px rgba(0,0,0,.05);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
   border: 1px solid #E0E0E0;
   gap: 16px;
   padding: 16px;
@@ -1110,21 +1090,26 @@
 }
 
 .select {
-  border-radius: 12px;
   max-height: 50px;
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
   margin-left: 30px;
   background: #ffffff;
   border: 1px solid #E0E0E0;
-  border-radius: 3px;
-  box-shadow: 0 4px 4px rgba(0,0,0,.05);
+  border-radius: 8px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
+  font-weight: 600;
+  @include ofScrollBarStyle;
+  height: 100px;
+
+  &::selection {
+    max-height: 100px;
+  }
 
   &__wrapper {
     display: flex;
     justify-content: flex-start;
+    // padding-right: 10px;
   }
 
-  &__searchbox {
-    width: 190px;
-  }
+  &__searchbox {}
 }

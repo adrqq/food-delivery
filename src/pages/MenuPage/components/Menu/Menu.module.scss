@@ -84,8 +84,6 @@
 
   &__message {
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     width: 100%;
     position: absolute;
     left: 50%;
@@ -93,8 +91,6 @@
     transform: translate(-50%);
     flex-direction: column;
     gap: 40px;
-    // margin-top: 100px;
-    // height: 100%;
 
     &__title {
       font-weight: 600;
@@ -117,9 +113,6 @@
 }
 
 .loader__wrapper {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -195,24 +188,13 @@
         display: flex;
         align-items: center;
         height: 24px;
-        padding: 14px;
+        padding: 14px 10px;
         background-color: $bg-white;
         box-shadow: $box-shadow;
         border: 1px solid $border-color-gray;
         justify-content: space-between;
         cursor: pointer;
         border-radius: 8px;
-        // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-        @include onTablet {
-          padding: 20px;
-          height: 32px;
-        }
-
-        @include onDesktop {
-          padding: 20px;
-          height: 32px;
-        }
 
         &__active {
           border: 1px solid $main-orange;
@@ -220,7 +202,6 @@
       }
 
       &__sBtn {
-
         &__text {
           font-style: normal;
           font-weight: 600;
@@ -371,7 +352,6 @@
         border: 1px solid $main-orange;
       }
 
-
       &__specification {
         width: 100%;
         border: 1px solid $border-color;
@@ -389,7 +369,6 @@
         &:hover {
           border: 1px solid $main-orange;
         }
-
       }
     }
   }

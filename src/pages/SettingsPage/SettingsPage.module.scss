@@ -2,6 +2,19 @@
 @import '../../utils/mixins.scss';
 
 .settings {
+  max-height: 100vh;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    max-height: 100%;
+    overflow: auto;
+  }
+
+  @media (max-height: 700px) {
+    max-height: 100%;
+    overflow: auto;
+  }
+
   &__main {
     display: grid;
     grid-template-columns: 0.5fr 2fr;

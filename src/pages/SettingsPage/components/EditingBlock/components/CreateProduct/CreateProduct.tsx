@@ -5,13 +5,13 @@ import React, { useEffect, useState } from 'react';
 import s from './CreateProduct.module.scss';
 import { PagePath } from '../../../../../../types/PagePath';
 import { useAppDispatch, useAppSelector } from '../../../../../../app/hooks';
-import { setPagePath } from '../../../../../../features/main/mainSlice';
+import { setPagePath, setPopupMessage } from '../../../../../../features/main/mainSlice';
 import { ProductModel } from '../../../../../../models/ProductModel';
 import ProductService from '../../../../../../api/services/ProductService';
 import { ProductCategory } from '../../../../../../types/products';
-import { NotificationPopup } from '../NotificationPopup';
+import { NotificationPopup } from '../../../../../../components/NotificationPopup/NotificationPopup';
 import { getAndSetProducts } from '../../../../../../utils/functions/getAndSetProducts';
-import { setProductManageError } from '../../../../../../features/products/productsSlice';
+// import { setProductManageError } from '../../../../../../features/products/productsSlice';
 
 enum InputDataType {
   NAME = 'name',
@@ -34,7 +34,6 @@ export const CreateProduct: React.FC = () => {
   const [packageCost, setPackageCost] = useState(0 as number);
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState(null as string | null);
-  const [isSuccess, setIsSuccess] = useState(false as boolean);
 
   const dispatch = useAppDispatch();
 
@@ -42,7 +41,6 @@ export const CreateProduct: React.FC = () => {
   const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
   const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
   const searchQuery = useAppSelector((state) => state.products.searchQuery);
-  const productManageError = useAppSelector((state) => state.products.productManageError);
 
   useEffect(() => {
     dispatch(setPagePath(PagePath.SETTINGS__MANAGEMENT__EDIT));
@@ -93,71 +91,55 @@ export const CreateProduct: React.FC = () => {
 
   const checkData = () => {
     if (name.trim() === '') {
-      dispatch(setProductManageError('Введіть назву продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть назву продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (description.trim() === '') {
-      dispatch(setProductManageError('Введіть опис продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть опис продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (price === 0) {
-      dispatch(setProductManageError('Введіть ціну продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть ціну продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (weight === 0) {
-      dispatch(setProductManageError('Введіть вагу продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть вагу продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
     if (packageCost === 0) {
-      dispatch(setProductManageError('Введіть ціну пакування продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Введіть ціну пакування продукту!',
+        success: false,
+      }));
 
       return false;
     }
 
-    // if (likesCount === 0) {
-    //   setProductManageError('Введіть кількість вподобань продукту!');
-
-    //   setTimeout(() => {
-    //     setProductManageError('');
-    //   }, 2000);
-
-    //   return false;
-    // }
-
     if (image === null) {
-      dispatch(setProductManageError('Виберіть фото продукту!'));
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Виберіть фото продукту!',
+        success: false,
+      }));
 
       return false;
     }
@@ -197,29 +179,25 @@ export const CreateProduct: React.FC = () => {
         await ProductService.addProductImage('image', newProduct.id, image);
       }
 
-      dispatch(setProductManageError('Продукт успішно створено!'));
-      setIsSuccess(true);
+      dispatch(setPopupMessage({
+        text: 'Продукт успішно створено!',
+        success: true,
+      }));
 
       getAndSetProducts(dispatch, currentPage, itemsPerPage, selectedFilter, searchQuery);
-
-      setTimeout(() => {
-        dispatch(setProductManageError(''));
-        setIsSuccess(false);
-      }, 2000);
     } catch (error) {
       console.log(error);
 
-      setProductManageError('Помилка сервера при створенні продукту 505!!');
-
-      setTimeout(() => {
-        setProductManageError('');
-      }, 2000);
+      dispatch(setPopupMessage({
+        text: 'Помилка при створенні продукту!',
+        success: false,
+      }));
     }
   };
 
   return (
     <div className={s.create_product}>
-      {productManageError !== '' && <NotificationPopup text={productManageError} success={isSuccess} />}
+      <NotificationPopup />
 
       <header className={s.create_product__header}>
         <h1 className={s.create_product__header__title}>Додати новий продукт</h1>

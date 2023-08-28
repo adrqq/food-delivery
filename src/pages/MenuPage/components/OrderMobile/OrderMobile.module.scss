@@ -5,7 +5,7 @@
 
 .order__mobile {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -16,16 +16,11 @@
   margin: 0 auto;
   justify-content: flex-start;
 
-  // @media (max-width: 768px) {
-  //   background-color: #fff;
-  // }
-
   &__main {
     display: flex;
     flex-direction: column;
     flex: 1 1;
     border-radius: 8px;
-    // height: 100vh;
     width: 600px;
 
     @media (max-width: 768px) {
@@ -33,16 +28,13 @@
     }
 
     &__container {
-      // min-height: calc(100vh - 36px - 24px - 24px - 24px);
-      // width: 600px;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 8px;
       background-color: #fff;
       border: 1px solid #E0E0E0;
-      margin-bottom: 24px;
-      // border: 1px solid #E0E0E0;
+      // margin-bottom: 100px;
     }
 
     &__product_card {
@@ -160,7 +152,6 @@
 
     &__actions {
       background-color: #fff;
-      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -233,7 +224,7 @@
     align-items: center;
     background-color: $base-color-white;
     gap: 18px;
-    box-shadow: 0 0 32px rgba(0,0,0,.1);
+    box-shadow: 0 0 32px rgba(0, 0, 0, .1);
 
     &__text {
       &__main {

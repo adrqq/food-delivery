@@ -33,7 +33,6 @@ const initialState = {
   selectedEditProduct: {} as ProductModel,
   userCart: [] as ProductModel[],
   images: [] as ImageData[],
-  productManageError: '',
 };
 
 export interface ProductsState {
@@ -53,7 +52,6 @@ export interface ProductsState {
   selectedEditProduct: ProductModel;
   userCart: ProductModel[];
   images: ImageData[];
-  productManageError: string;
 }
 
 export const calculateCartInfo = createAsyncThunk(
@@ -205,10 +203,6 @@ export const productsSlice = createSlice({
     setSelectedEditProduct(state, action: PayloadAction<ProductModel>) {
       state.selectedEditProduct = action.payload;
     },
-
-    setProductManageError(state, action: PayloadAction<string>) {
-      state.productManageError = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(calculateCartInfo.fulfilled, (state, action) => {
@@ -238,7 +232,6 @@ export const {
   setProductImage,
   setSelectedEditProduct,
   removeError,
-  setProductManageError,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

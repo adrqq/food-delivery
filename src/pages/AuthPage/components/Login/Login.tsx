@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './Login.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
-// import { Example } from '../../../../hooks';
 import closedEyeIcon from '../../../../images/logos/password-eye-closed.svg';
 import openEyeIcon from '../../../../images/logos/password-eye-open.svg';
 import googleLogo from '../../../../images/logos/google-logo.svg';
@@ -16,14 +15,12 @@ import { Stage } from '../../../../types/products';
 import { login } from '../../../../features/users/usersSlice';
 import { setLocalStorageCart } from '../../../../features/products/productsSlice';
 import { PagePath } from '../../../../types/PagePath';
-// import { useNavigate } from 'react-router-dom';
-// import manRight from '../../../../images/logos/man-right.svg';
-// import exitDoor from '../../../../images/logos/exit-door.svg';
 
 export const Login: React.FC = () => {
   const [emailLogin, setEmailLogin] = useState<string>('');
   const [passwordLogin, setPasswordLogin] = useState<string>('');
   const [isShowLoginPassword, setIsShowLoginPassword] = useState<boolean>(false);
+  const [remember, setRemember] = useState<boolean>(false);
   const [role, setRole] = useState('user');
 
   const isLoginError = useAppSelector((state) => state.users.isLoginError);
@@ -39,24 +36,12 @@ export const Login: React.FC = () => {
     navigate(PagePath.REGISTRATION, { replace: true });
   };
 
-  // const handleStageChange = (stageValue: Stage) => {
-  //   const container = document.getElementById('container');
-
-  //   container?.classList.add(s.active);
-
-  //   setTimeout(() => {
-  //     container?.classList.remove(s.active);
-  //   }, 2000);
-
-  //   setStage(stageValue);
-  //   console.log('stageValue', stageValue);
-  // };
-
   const handleLogin = async () => {
     console.log('handleLogin');
     await dispatch(login({
       emailLogin,
       passwordLogin,
+      remember,
     })).then((res) => {
       if (!res.payload) {
         return;
@@ -96,6 +81,7 @@ export const Login: React.FC = () => {
     <>
       <div className={s.auth__form}>
         <form
+          autoComplete="off"
           className={s.auth__form__content}
           onSubmit={(e) => {
             e.preventDefault();
@@ -151,6 +137,7 @@ export const Login: React.FC = () => {
               <input
                 className={s.auth__form__content__options__remember__checkbox}
                 type="checkbox"
+                onChange={() => setRemember(!remember)}
               />
 
               <div className={s.auth__form__content__options__remember__text}>

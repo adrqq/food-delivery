@@ -33,6 +33,8 @@ enum SortType {
   ASC = 'За зростанням ціни',
   DESC = 'За спаданням ціни',
   LIKES_COUNT = 'За популярністю',
+  WEIGHT_ASC = 'За зростанням ваги',
+  WEIGHT_DESC = 'За спаданням ваги',
 }
 
 export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
@@ -134,7 +136,6 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                   type="button"
                   className={classNames(
                     s.menu__selector__searchbox__select__menu,
-                    // [timeChoose === SelectedTime.CHOOSE_TIME && s.select__searchbox],
                     s.select__searchbox,
                   )}
                   onClick={handleOpenTimeSelector}
@@ -166,13 +167,6 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                         )}
                         onClick={() => (setSortType(SortType.ASC))}
                       >
-                        <div
-                          className={classNames(
-                            s.menu__selector__searchbox__select__options__option__card_icon,
-                            s.menu__selector__searchbox__select__options__option__card_icon__timer,
-                            [sortType === SortType.ASC && s.menu__selector__searchbox__select__options__option__card_icon__timer__active],
-                          )}
-                        />
                         <p
                           className={classNames(
                             s.menu__selector__searchbox__select__options__option__text,
@@ -188,13 +182,6 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                         className={s.menu__selector__searchbox__select__options__option}
                         onClick={() => (setSortType(SortType.DESC))}
                       >
-                        <div
-                          className={classNames(
-                            s.menu__selector__searchbox__select__options__option__card_icon,
-                            s.menu__selector__searchbox__select__options__option__card_icon__clock,
-                            [sortType === SortType.DESC && s.menu__selector__searchbox__select__options__option__card_icon__clock__active],
-                          )}
-                        />
                         <p
                           className={classNames(
                             s.menu__selector__searchbox__select__options__option__text,
@@ -210,13 +197,6 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                         className={s.menu__selector__searchbox__select__options__option}
                         onClick={() => (setSortType(SortType.LIKES_COUNT))}
                       >
-                        <div
-                          className={classNames(
-                            s.menu__selector__searchbox__select__options__option__card_icon,
-                            s.menu__selector__searchbox__select__options__option__card_icon__stats,
-                            [sortType === SortType.LIKES_COUNT && s.menu__selector__searchbox__select__options__option__card_icon__stats__active],
-                          )}
-                        />
                         <p
                           className={classNames(
                             s.menu__selector__searchbox__select__options__option__text,
@@ -224,6 +204,36 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                           )}
                         >
                           {SortType.LIKES_COUNT}
+                        </p>
+                      </button>
+
+                      <button
+                        type="button"
+                        className={s.menu__selector__searchbox__select__options__option}
+                        onClick={() => (setSortType(SortType.WEIGHT_ASC))}
+                      >
+                        <p
+                          className={classNames(
+                            s.menu__selector__searchbox__select__options__option__text,
+                            [sortType === SortType.WEIGHT_ASC && s.menu__selector__searchbox__select__options__option__text__active],
+                          )}
+                        >
+                          {SortType.WEIGHT_ASC}
+                        </p>
+                      </button>
+
+                      <button
+                        type="button"
+                        className={s.menu__selector__searchbox__select__options__option}
+                        onClick={() => (setSortType(SortType.WEIGHT_DESC))}
+                      >
+                        <p
+                          className={classNames(
+                            s.menu__selector__searchbox__select__options__option__text,
+                            [sortType === SortType.WEIGHT_DESC && s.menu__selector__searchbox__select__options__option__text__active],
+                          )}
+                        >
+                          {SortType.WEIGHT_DESC}
                         </p>
                       </button>
                     </ul>

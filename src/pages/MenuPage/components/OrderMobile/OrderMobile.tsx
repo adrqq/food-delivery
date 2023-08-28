@@ -55,9 +55,8 @@ export const OrderMobile = () => {
         <div className={s.order__mobile__header__text}>
           <p className={s.order__mobile__header__text__main}>Перевірте замовлення</p>
 
-          <p className={s.order__mobile__header__text__second}> (Доставка)</p>
+          <p className={s.order__mobile__header__text__second}>(Доставка)</p>
         </div>
-
       </header>
 
       <main className={s.order__mobile__main__container}>

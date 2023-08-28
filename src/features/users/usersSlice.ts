@@ -31,10 +31,10 @@ export interface UsersSliceState {
 
 export const login = createAsyncThunk(
   'login',
-  async (payload: { emailLogin: string; passwordLogin: string }, { rejectWithValue }) => {
+  async (payload: { emailLogin: string; passwordLogin: string; remember: boolean }, { rejectWithValue }) => {
     try {
       console.log('payload', payload);
-      const response = await AuthService.login(payload.emailLogin, payload.passwordLogin);
+      const response = await AuthService.login(payload.emailLogin, payload.passwordLogin, payload.remember);
 
       localStorage.setItem('token', response.data.accessToken);
 
@@ -174,54 +174,47 @@ export const usersSlice = createSlice({
       state.registrationErrorType = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(login.fulfilled, (state, action) => {
-        state.isUserAuth = true;
-        state.user = action.payload;
-        state.isLoginError = false;
-      })
-      .addCase(login.rejected, (state, action) => {
-        if (typeof action.payload === 'string') {
-          state.activationEmail = action.payload;
-        } else {
-          state.isLoginError = true;
-        }
-      });
+  extraReducers: {
+    [login.fulfilled.type]: (state, action) => {
+      state.isUserAuth = true;
+      state.user = action.payload;
+      state.isLoginError = false;
+    },
+    [login.rejected.type]: (state, action) => {
+      if (typeof action.payload === 'string') {
+        state.activationEmail = action.payload;
+      } else {
+        state.isLoginError = true;
+      }
+    },
+    [registration.fulfilled.type]: (state, action) => {
+      state.activationEmail = action.payload.email;
+      state.registrationErrorType = RegistrationErrorType.NULL;
+    },
+    [registration.rejected.type]: (state, action) => {
+      state.registrationErrorType = RegistrationErrorType.EMAIL_ALREADY_EXIST;
+      console.log(action.payload); // Handle error from rejectWithValue
+    },
+    [logout.fulfilled.type]: (state) => {
+      state.isUserAuth = false;
+      state.user = {} as IUser;
+    },
+    [checkAuth.fulfilled.type]: (state, action) => {
+      state.isUserAuth = true;
+      state.user = action.payload;
+      console.log('checkAuth.fulfilled', action.payload);
+      console.log('userId', state.user.id);
+    },
+    [checkAuth.rejected.type]: (state, action) => {
+      const email = action.payload as string;
 
-    builder
-      .addCase(registration.fulfilled, (state, action) => {
-        state.activationEmail = action.payload.email;
-
-        state.registrationErrorType = RegistrationErrorType.NULL;
-      })
-      .addCase(registration.rejected, (state, action) => {
-        state.registrationErrorType = RegistrationErrorType.EMAIL_ALREADY_EXIST;
-        console.log(action.payload); // Handle error from rejectWithValue
-      });
-
-    builder
-      .addCase(logout.fulfilled, (state) => {
-        state.isUserAuth = false;
-        state.user = {} as IUser;
-      });
-
-    builder
-      .addCase(checkAuth.fulfilled, (state, action) => {
-        state.isUserAuth = true;
-        state.user = action.payload;
-        console.log('checkAuth.fulfilled', action.payload);
-        console.log('userId', state.user.id);
-      })
-      .addCase(checkAuth.rejected, (state, action) => {
-        const email = action.payload as string;
-
-        state.isUserAuth = false;
-        state.user = {} as IUser;
-        state.activationEmail = email;
-        console.log('checkAuth.rejected', action.payload);
-      });
+      state.isUserAuth = false;
+      state.user = {} as IUser;
+      state.activationEmail = email;
+      console.log('checkAuth.rejected', action.payload);
+    },
   },
+
 });
 
 export const {

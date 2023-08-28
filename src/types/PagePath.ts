@@ -2,7 +2,7 @@
 
 export enum PagePath {
   MENU = '/menu',
-  PRODUCT = '/product',
+  PRODUCT = '/menu/product',
   DASHBOARD = '/dashboard',
   SETTINGS = '/settings',
   NOTIFICATIONS = '/notifications',
@@ -16,4 +16,5 @@ export enum PagePath {
   REGISTRATION = '/auth/registration',
   LOGIN = '/auth/login',
   ACTIVATION = '/auth/activation',
+  BURGER_MENU = '/burger-menu',
 }

@@ -4,8 +4,11 @@ import React, { useEffect } from 'react';
 import s from './Security.module.scss';
 import { PagePath } from '../../../../../../types/PagePath';
 import { useAppDispatch, useAppSelector } from '../../../../../../app/hooks';
-import { setPagePath } from '../../../../../../features/main/mainSlice';
+import { setPagePath, setPopupMessage } from '../../../../../../features/main/mainSlice';
 import { changeUserData } from '../../../../../../features/users/usersSlice';
+import { NotificationPopup } from '../../../../../../components/NotificationPopup';
+import eyeIconClosed from '../../../../../../images/logos/password-eye-closed.svg';
+import eyeIconOpened from '../../../../../../images/logos/password-eye-open.svg';
 
 export const Security: React.FC = () => {
   const user = useAppSelector((state) => state.users.user);
@@ -15,6 +18,8 @@ export const Security: React.FC = () => {
   const [currentPassword, setCurrentPassword] = React.useState('');
   const [newPassword, setNewPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
+  const [isShowCurrentPassword, setIsShowCurrentPassword] = React.useState(false);
+  const [isShowNewPassword, setIsShowNewPassword] = React.useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -23,18 +28,73 @@ export const Security: React.FC = () => {
   }, []);
 
   const handleChangeUserData = () => {
+    if (!email.trim()) {
+      dispatch(setPopupMessage({
+        text: 'Введіть поточну або нову електронну пошту',
+        success: false,
+      }));
+
+      return;
+    }
+
+    if (!currentPassword.trim()) {
+      dispatch(setPopupMessage({
+        text: 'Введіть поточний пароль',
+        success: false,
+      }));
+
+      return;
+    }
+
+    if (!username.trim()) {
+      dispatch(setPopupMessage({
+        text: 'Введіть новий нікнейм або залиште старий',
+        success: false,
+      }));
+
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      dispatch(setPopupMessage({
+        text: 'Паролі не співпадають',
+        success: false,
+      }));
+
+      // return;
+    }
+
+    if (currentPassword.trim() === newPassword.trim()) {
+      dispatch(setPopupMessage({
+        text: 'Новий пароль не повинен співпадати з поточним',
+        success: false,
+      }));
+
+      return;
+    }
+
+    if (email.trim() === user.email && username.trim() === user.name && newPassword === '' && confirmPassword === '') {
+      dispatch(setPopupMessage({
+        text: 'Ви не змінили жодного поля',
+        success: false,
+      }));
+
+      return;
+    }
+
     dispatch(changeUserData({
       oldEmail: user.email,
       oldPassword: currentPassword,
       name: username,
       role: user.role,
-      email,
+      email: email.trim() === user.email ? user.email : email.trim(),
       password: newPassword,
     }));
   };
 
   return (
     <div className={s.security__page}>
+      <NotificationPopup />
       <form
         className={s.security__page__body}
         onSubmit={(e) => {
@@ -64,6 +124,7 @@ export const Security: React.FC = () => {
                   className={s.security__page__registration__email__input}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Якщо ви хочете змінити електронну пошту, введіть нову"
                 />
               </div>
 
@@ -131,12 +192,26 @@ export const Security: React.FC = () => {
                   (Залиште поле порожнім, якщо не хочете змінювати пароль)
                 </span>
 
-                <input
-                  type="password"
-                  className={s.security__page__registration__new__password__input}
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
+                <div className={s.security__page__registration__new__password__input__wrapper}>
+                  <input
+                    type={isShowNewPassword ? 'text' : 'password'}
+                    className={s.security__page__registration__new__password__input}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                  />
+
+                  <button
+                    type="button"
+                    className={s.security__page__registration__new__password__eye}
+                    onClick={() => setIsShowNewPassword(!isShowNewPassword)}
+                  >
+                    {isShowNewPassword ? (
+                      <img alt="eye-open" src={eyeIconOpened} />
+                    ) : (
+                      <img alt="eye-closed" src={eyeIconClosed} />
+                    )}
+                  </button>
+                </div>
               </div>
 
               <div className={s.security__page__confirm}>
@@ -148,12 +223,25 @@ export const Security: React.FC = () => {
                   (Потрібно якщо ви змінюєте пароль)
                 </div>
 
-                <input
-                  type="password"
-                  className={s.security__page__confirm__input}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                <div className={s.security__page__registration__new__password__input__wrapper}>
+                  <input
+                    type={isShowNewPassword ? 'text' : 'password'}
+                    className={s.security__page__confirm__input}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className={s.security__page__registration__new__password__eye}
+                    onClick={() => setIsShowNewPassword(!isShowNewPassword)}
+                  >
+                    {isShowNewPassword ? (
+                      <img alt="eye-open" src={eyeIconOpened} />
+                    ) : (
+                      <img alt="eye-closed" src={eyeIconClosed} />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -163,14 +251,26 @@ export const Security: React.FC = () => {
                   Теперішній пароль (Обов’язково для зміни будь-яких даних)
                 </div>
 
-                <input
-                  type="password"
-                  className={s.security__page__current__password__input}
-                  placeholder="*****"
-                  value={currentPassword}
-                  onChange={(e) => setCurrentPassword(e.target.value)}
-                  required
-                />
+                <div className={s.security__page__registration__new__password__input__wrapper}>
+                  <input
+                    type={isShowCurrentPassword ? 'text' : 'password'}
+                    className={s.security__page__current__password__input}
+                    placeholder="*****"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className={s.security__page__registration__new__password__eye__current}
+                    onClick={() => setIsShowCurrentPassword(!isShowCurrentPassword)}
+                  >
+                    {isShowCurrentPassword ? (
+                      <img alt="eye-open" src={eyeIconOpened} />
+                    ) : (
+                      <img alt="eye-closed" src={eyeIconClosed} />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

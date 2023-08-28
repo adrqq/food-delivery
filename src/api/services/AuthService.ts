@@ -3,14 +3,15 @@ import axios, { AxiosResponse } from 'axios';
 import $api from '../../http';
 import { AuthResponse } from '../../models/response/AuthResponse';
 
-// const API_URL = 'http://localhost:5000';
-const API_URL = 'http://16.16.68.28:5000';
+const API_URL = 'http://localhost:5000';
+// const API_URL = 'http://16.16.68.28:5000';
 
 export default class AuthService {
-  static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
+  static async login(email: string, password: string, remember: boolean): Promise<AxiosResponse<AuthResponse>> {
     return $api.post<AuthResponse>('/login', {
       email,
       password,
+      remember,
     });
   }
 

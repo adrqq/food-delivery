@@ -89,15 +89,22 @@
 
   &__payment {
     width: 100%;
-    height: 130px;
+    height: 80px;
     background-color: #ffc700;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     display: flex;
     justify-content: space-between;
     margin-top: auto;
-
     padding: 24px;
+
+    @include onTablet {
+      height: 100px;
+    }
+
+    @include onDesktop {
+      height: 130px;
+    }
 
     &__button {
       padding: 10px 22px;

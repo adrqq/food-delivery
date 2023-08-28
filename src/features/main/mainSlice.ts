@@ -4,6 +4,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PagePath } from '../../types/PagePath';
+import { PopupMessage } from '../../types/PopupMessage';
 
 const initialState = {
   isOrderMenuOpen: false,
@@ -15,6 +16,7 @@ const initialState = {
   brandName: 'Дукат',
   showAddedNotification: false,
   isBurgerMenuOpen: false,
+  popupMessage: {} as PopupMessage,
 };
 
 export interface MainSliceState {
@@ -27,6 +29,7 @@ export interface MainSliceState {
   brandName: string;
   showAddedNotification: boolean,
   isBurgerMenuOpen: boolean,
+  popupMessage: PopupMessage;
 }
 
 export const mainSlice = createSlice({
@@ -63,6 +66,10 @@ export const mainSlice = createSlice({
     setIsBurgerMenuOpen(state, action: PayloadAction<boolean>) {
       state.isBurgerMenuOpen = action.payload;
     },
+
+    setPopupMessage(state, action: PayloadAction<PopupMessage>) {
+      state.popupMessage = action.payload;
+    },
   },
 });
 
@@ -75,6 +82,7 @@ export const {
   setIsLogOutModalOpen,
   setIsDeleteProductModalOpen,
   setIsBurgerMenuOpen,
+  setPopupMessage,
 } = mainSlice.actions;
 
 export default mainSlice.reducer;

@@ -5,8 +5,8 @@
 /* eslint-disable no-param-reassign */
 import axios from 'axios';
 
-// const BASE_URL = 'http://localhost:5000';
-const BASE_URL = 'http://16.16.68.28:5000';
+const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://16.16.68.28:5000';
 
 const $api = axios.create({
   withCredentials: true,

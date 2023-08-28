@@ -32,11 +32,22 @@ export const PaymentMobile: React.FC = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isUserAuth = useAppSelector(state => state.users.isUserAuth);
-  const localStorageCart = useAppSelector(state => state.products.localStorageCart);
-  const userCart = useAppSelector(state => state.products.userCart);
-  const cartItemsCount = useAppSelector((state) => state.products.cartItemsCount);
-  const cartTotalPrice = useAppSelector((state) => state.products.cartTotalPrice);
+
+  const {
+    isUserAuth,
+    user,
+  } = useAppSelector(state => state.users);
+
+  const {
+    localStorageCart,
+    userCart,
+    cartItemsCount,
+    cartTotalPrice,
+  } = useAppSelector((state) => state.products);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSelectPayment = (nameOfPayment: SelectedMethod) => {
     if (nameOfPayment === SelectedMethod.CARD) {
@@ -51,10 +62,6 @@ export const PaymentMobile: React.FC = () => {
   const handleButtonOpener = () => {
     setSelectOpener(!selectOpener);
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handlePaymentClose = () => {
     navigate(-1);
@@ -174,6 +181,7 @@ export const PaymentMobile: React.FC = () => {
                 <input
                   type="text"
                   className={s.payment__mobile__main__order__address__searchbox__input}
+                  maxLength={50}
                 />
               </div>
 
@@ -185,6 +193,7 @@ export const PaymentMobile: React.FC = () => {
                 <input
                   type="text"
                   className={s.payment__mobile__main__order__address__searchbox__input__specification}
+                  maxLength={50}
                 />
               </div>
 
@@ -193,7 +202,10 @@ export const PaymentMobile: React.FC = () => {
                   Коментар до адреси:
                 </p>
 
-                <textarea className={s.payment__mobile__main__order__address__searchbox__input__specification} />
+                <textarea
+                  className={s.payment__mobile__main__order__address__searchbox__input__specification}
+                  maxLength={50}
+                />
               </div>
 
               <div className={s.payment__mobile__main__order__address__searchbox}>
@@ -310,20 +322,26 @@ export const PaymentMobile: React.FC = () => {
                       <p className={s.card__optional__text}>
                         Номер картки
                       </p>
-                      <input type="text" />
+                      <input
+                        type="text"
+                      />
                     </div>
                     <div className={s.card__optional__info}>
                       <p className={s.card__optional__text}>
                         дата
                       </p>
-                      <input type="text" />
+                      <input
+                        type="text"
+                      />
                     </div>
 
                     <div className={s.card__optional__info}>
                       <p className={s.card__optional__text}>
                         CVV
                       </p>
-                      <input type="text" />
+                      <input
+                        type="text"
+                      />
                     </div>
                   </div>
                 )}
@@ -345,6 +363,7 @@ export const PaymentMobile: React.FC = () => {
                 <input
                   type="text"
                   className={s.payment__mobile__main__order__contact__searchbox__input__specification}
+                  maxLength={50}
                 />
               </div>
             </div>
@@ -363,6 +382,7 @@ export const PaymentMobile: React.FC = () => {
                   <input
                     type="tel"
                     className={s.payment__mobile__main__order__contact__searchbox__phone__input}
+                    maxLength={12}
                   />
                 </div>
               </div>
@@ -375,8 +395,9 @@ export const PaymentMobile: React.FC = () => {
                 </p>
 
                 <input
-                  type="text"
+                  type="email"
                   className={s.payment__mobile__main__order__contact__searchbox__input__specification}
+                  maxLength={50}
                 />
               </div>
             </div>
