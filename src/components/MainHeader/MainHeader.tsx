@@ -13,7 +13,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { Scrollbar } from 'swiper';
 import s from './MainHeader.module.scss';
-import { ProductCategory, ErrorType } from '../../types/products';
+import { ProductCategory, ErrorType } from '../../types/Products';
 import { ProductModel } from '../../models/ProductModel';
 import { Example } from '../../hooks';
 import 'swiper/scss';

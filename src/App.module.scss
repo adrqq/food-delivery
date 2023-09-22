@@ -3,28 +3,17 @@
 
 #root {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   font-family: 'Manrope', 'ComicSans' !important;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-html {
-  margin: 0;
-  font-family: 'Manrope', Comic Sans MS !important;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
 body {
-  width: 100%;
-  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -64,18 +53,4 @@ body {
       }
     }
   }
-
-  // &__wrapper {
-  //   display: grid;
-  //   flex-direction: row;
-  //   grid-template-columns: 96px 1fr;
-
-  //   @media (max-width: 466px) {
-  //     grid-template-columns: 1fr;
-  //   }
-
-  //   @media (max-height: 630px) {
-  //     grid-template-columns: 1fr;
-  //   }
-  // }
 }

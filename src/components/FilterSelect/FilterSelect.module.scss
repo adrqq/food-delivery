@@ -1,0 +1,34 @@
+@import '../../utils/mixins.scss';
+@import '../../utils/vars.scss';
+
+.filter_select {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: start;
+
+  &__title {
+    margin-left: 2px;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0em;
+    color: rgb(101, 89, 89);
+  }
+
+  &__select {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 5px;
+    border: 1px solid $main-font-color;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: rgb(101, 89, 89);
+    }
+  }
+}

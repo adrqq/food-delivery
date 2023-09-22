@@ -9,12 +9,13 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { ErrorType, ProductCategory } from '../../types/products';
+import { ErrorType, ProductCategory } from '../../types/Products';
 import { useAppSelector } from '../../app/hooks';
 import { ProductModel } from '../../models/ProductModel';
 import { CartModel } from '../../models/CartModel';
 import { CartItemModel } from '../../models/CartItemModel';
-import { ImageData } from '../../types/imageData';
+import { ImageData } from '../../types/ImageData';
+import { SortType } from '../../types/SortType';
 
 const initialState = {
   products: [] as ProductModel[],
@@ -33,6 +34,8 @@ const initialState = {
   selectedEditProduct: {} as ProductModel,
   userCart: [] as ProductModel[],
   images: [] as ImageData[],
+  sortType: SortType.PRICE_ASC,
+  callProductsUpdate: false,
 };
 
 export interface ProductsState {
@@ -52,6 +55,8 @@ export interface ProductsState {
   selectedEditProduct: ProductModel;
   userCart: ProductModel[];
   images: ImageData[];
+  sortType: SortType;
+  callProductsUpdate: boolean;
 }
 
 export const calculateCartInfo = createAsyncThunk(
@@ -104,10 +109,6 @@ export const productsSlice = createSlice({
     getProductsSuccess(state, action: PayloadAction<ProductModel[]>) {
       state.products = action.payload;
 
-      // setTimeout(() => {
-      //   state.isProductsLoading = false;
-      // }, 1000);
-
       state.isProductsLoading = false;
 
       console.log('getProductsSuccess');
@@ -125,7 +126,6 @@ export const productsSlice = createSlice({
     setFilter(state, action: PayloadAction<ProductCategory>) {
       state.selectedFilter = action.payload;
 
-      // Reset current page to 1
       state.currentPage = 1;
     },
 
@@ -136,7 +136,6 @@ export const productsSlice = createSlice({
     setItemsPerPage(state, action: PayloadAction<number>) {
       state.itemsPerPage = action.payload;
 
-      // Reset current page to 1
       state.currentPage = 1;
     },
 
@@ -147,7 +146,6 @@ export const productsSlice = createSlice({
     setSearchQuery(state, action: PayloadAction<string>) {
       state.searchQuery = action.payload;
 
-      // Reset current page to 1
       state.currentPage = 1;
     },
 
@@ -200,8 +198,20 @@ export const productsSlice = createSlice({
       });
     },
 
+    setProductImages(state, action: PayloadAction<ImageData[]>) {
+      state.images = action.payload;
+    },
+
     setSelectedEditProduct(state, action: PayloadAction<ProductModel>) {
       state.selectedEditProduct = action.payload;
+    },
+
+    setSortType(state, action: PayloadAction<SortType>) {
+      state.sortType = action.payload;
+    },
+
+    setCallProductsUpdate(state) {
+      state.callProductsUpdate = !state.callProductsUpdate;
     },
   },
   extraReducers: (builder) => {
@@ -230,8 +240,11 @@ export const {
   removeProductFromUserCart,
   deleteProductFromUserCart,
   setProductImage,
+  setProductImages,
   setSelectedEditProduct,
   removeError,
+  setSortType,
+  setCallProductsUpdate,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

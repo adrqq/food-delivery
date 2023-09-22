@@ -37,73 +37,12 @@ export const AppRouter: React.FC = () => {
     <Routes>
       <Route path="/" element={<Navigate to={PagePath.MENU} replace />} />
       <Route path={PagePath.AUTH} element={<Navigate to={PagePath.LOGIN} />} />
-      <Route path={PagePath.SETTINGS} element={<Navigate to={PagePath.SETTINGS__SECURITY} />} />
+
+      {/* Nested Layout Route */}
       <Route path="/" element={<Layout />}>
-        <Route
-          path={PagePath.MENU}
-          element={<MenuPage />}
-        />
-        <Route
-          path={PagePath.DASHBOARD}
-          element={<DashboardPage />}
-        />
-        <Route
-          path={PagePath.SETTINGS}
-          element={<SettingsPage />}
-        >
-          <Route path=":security" element={<Security />} />
-          <Route path=":products-management" element={<ProductManagement />} />
-          <Route path=":products-management/edit-product" element={<EditProduct />} />
-          <Route path=":products-management/create-product" element={<CreateProduct />} />
-        </Route>
-        <Route
-          path={PagePath.NOTIFICATIONS}
-          element={<NotificationPage />}
-        />
-        <Route
-          path={PagePath.PRODUCT}
-          element={<ProductPage />}
-        />
+        <Route path={PagePath.MENU} element={<MenuPage />} />
+        <Route path={PagePath.DASHBOARD} element={<DashboardPage />} />
       </Route>
-      <Route
-        path={PagePath.AUTH}
-        element={(
-          <AuthPage />
-        )}
-      >
-        <Route path=":login" element={<Login />} />
-        <Route path=":registration" element={<Registration />} />
-      </Route>
-      <Route
-        path={PagePath.ORDER_MOBILE}
-        element={(
-          <div className={s.app}>
-            <OrderMobile />
-          </div>
-        )}
-      />
-      <Route
-        path={PagePath.PAYMENT_MOBILE}
-        element={(
-          <div className={s.app}>
-            <PaymentMobile />
-          </div>
-        )}
-      />
-      <Route
-        path="home/burger-menu"
-        element={(
-          <div className={s.app}>
-            <BurgerMenu />
-          </div>
-        )}
-      />
-      <Route
-        path={PagePath.ACTIVATION}
-        element={(
-          <ActivationPage />
-        )}
-      />
     </Routes>
   );
 };

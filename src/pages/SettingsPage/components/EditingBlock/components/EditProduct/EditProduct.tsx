@@ -8,9 +8,10 @@ import { useAppDispatch, useAppSelector } from '../../../../../../app/hooks';
 import { setPagePath, setPopupMessage } from '../../../../../../features/main/mainSlice';
 import { ProductModel } from '../../../../../../models/ProductModel';
 import ProductService from '../../../../../../api/services/ProductService';
-import { ProductCategory } from '../../../../../../types/products';
+import { ProductCategory } from '../../../../../../types/Products';
 import { NotificationPopup } from '../../../../../../components/NotificationPopup/NotificationPopup';
 import { getAndSetProducts } from '../../../../../../utils/functions/getAndSetProducts';
+import { setCallProductsUpdate } from '../../../../../../features/products/productsSlice';
 
 enum InputDataType {
   NAME = 'name',
@@ -26,10 +27,6 @@ enum InputDataType {
 export const EditProduct: React.FC = () => {
   const product = useAppSelector((state) => state.products.selectedEditProduct);
   const images = useAppSelector((state) => state.products.images);
-  const currentPage = useAppSelector((state) => state.products.currentPage);
-  const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
-  const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
-  const searchQuery = useAppSelector((state) => state.products.searchQuery);
 
   const imageData = images.find((img) => img.productId === product.id)?.imageData;
 
@@ -178,7 +175,7 @@ export const EditProduct: React.FC = () => {
         success: true,
       }));
 
-      getAndSetProducts(dispatch, currentPage, itemsPerPage, selectedFilter, searchQuery);
+      dispatch(setCallProductsUpdate());
     } catch (error) {
       console.log(error);
 

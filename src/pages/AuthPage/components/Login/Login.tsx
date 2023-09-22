@@ -11,7 +11,7 @@ import googleLogo from '../../../../images/logos/google-logo.svg';
 import facebookLogo from '../../../../images/logos/facebook-logo.svg';
 import plusPeople from '../../../../images/logos/plus-people.svg';
 import arrowRight from '../../../../images/logos/arrow-oval-right-white.svg';
-import { Stage } from '../../../../types/products';
+import { Stage } from '../../../../types/Products';
 import { login } from '../../../../features/users/usersSlice';
 import { setLocalStorageCart } from '../../../../features/products/productsSlice';
 import { PagePath } from '../../../../types/PagePath';

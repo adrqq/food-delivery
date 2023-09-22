@@ -17,7 +17,7 @@ import {
   setProductsLength,
   setErrorText,
 } from '../../features/products/productsSlice';
-import { ErrorType } from '../../types/products';
+import { ErrorType } from '../../types/Products';
 import { ProductModel } from '../../models/ProductModel';
 
 export const SearchPage: React.FC = () => {

@@ -18,7 +18,7 @@ import {
   getProductsSuccess,
 } from '../../features/products/productsSlice';
 import { getProductsChunk } from '../../api/products';
-import { ErrorType } from '../../types/products';
+import { ErrorType } from '../../types/Products';
 import { ProductModel } from '../../models/ProductModel';
 
 import { getAndSetProducts } from '../../utils/functions/getAndSetProducts';
@@ -35,11 +35,20 @@ function getButtons(start: number, finish: number): number[] {
 
 export const Pagination: React.FC = () => {
   const dispatch = useAppDispatch();
-  const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
-  const currentPage = useAppSelector((state) => state.products.currentPage);
-  const productsLength = useAppSelector((state) => state.products.productsLength);
-  const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
-  const searchQuery = useAppSelector((state) => state.products.searchQuery);
+  // const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
+  // const currentPage = useAppSelector((state) => state.products.currentPage);
+  // const productsLength = useAppSelector((state) => state.products.productsLength);
+  // const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
+  // const searchQuery = useAppSelector((state) => state.products.searchQuery);
+
+  const {
+    itemsPerPage,
+    currentPage,
+    productsLength,
+    selectedFilter,
+    searchQuery,
+    sortType,
+  } = useAppSelector((state) => state.products);
 
   const totalPages = Math.ceil(productsLength / itemsPerPage);
 
@@ -56,7 +65,14 @@ export const Pagination: React.FC = () => {
 
     dispatch(setCurrentPage(nextPage));
 
-    getAndSetProducts(dispatch, nextPage, itemsPerPage, selectedFilter, searchQuery);
+    getAndSetProducts(
+      dispatch,
+      nextPage,
+      itemsPerPage,
+      selectedFilter,
+      searchQuery,
+      sortType,
+    );
 
     console.log('nextPage', nextPage);
 

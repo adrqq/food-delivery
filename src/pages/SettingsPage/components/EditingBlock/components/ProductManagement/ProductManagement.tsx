@@ -13,7 +13,7 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/css/scrollbar';
 
-import { ProductCategory } from '../../../../../../types/products';
+import { ProductCategory } from '../../../../../../types/Products';
 import { setFilter } from '../../../../../../features/products/productsSlice';
 import { setPagePath } from '../../../../../../features/main/mainSlice';
 import { PagePath } from '../../../../../../types/PagePath';

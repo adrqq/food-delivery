@@ -21,7 +21,7 @@ import coffeeLogo from '../Sidebar/assets/icons/coffee.svg';
 import hotDishesLogo from '../Sidebar/assets/icons/hot-dishes.svg';
 import appetizerLogo from '../Sidebar/assets/icons/appetizer.svg';
 import dessertLogo from '../Sidebar/assets/icons/dessert.svg';
-import { ProductCategory } from '../../types/products';
+import { ProductCategory } from '../../types/Products';
 import { setFilter } from '../../features/products/productsSlice';
 // import { logout } from '../../../../features/users/usersSlice';
 // import { calculateCartInfo } from '../../../../features/products/productsSlice';

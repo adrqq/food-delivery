@@ -14,7 +14,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 // import { Scrollbar } from 'swiper';
 // import { BurgerMenuButton } from '../../UI/BurgerMenuButton';
 import s from './Header.module.scss';
-import { ProductCategory, ErrorType } from '../../types/products';
+import { ProductCategory, ErrorType } from '../../types/Products';
 // import { ProductModel } from '../../models/ProductModel';
 import { Example } from '../../hooks';
 import 'swiper/scss';
@@ -40,9 +40,13 @@ export const Header: React.FC = () => {
   } = Example();
 
   const dispatch = useAppDispatch();
-  const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
-  const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
-  const searchQuery = useAppSelector((state) => state.products.searchQuery);
+
+  const {
+    selectedFilter,
+    itemsPerPage,
+    searchQuery,
+    sortType,
+  } = useAppSelector((state) => state.products);
 
   const navigate = useNavigate();
 
@@ -50,7 +54,7 @@ export const Header: React.FC = () => {
     console.log(filter);
     dispatch(setFilter(filter));
 
-    getAndSetProducts(dispatch, 1, itemsPerPage, filter, searchQuery);
+    getAndSetProducts(dispatch, 1, itemsPerPage, filter, searchQuery, sortType);
   };
 
   const handleSearch = (searchValue: string) => {
@@ -58,7 +62,7 @@ export const Header: React.FC = () => {
 
     dispatch(setSearchQuery(searchValue));
 
-    getAndSetProducts(dispatch, 1, itemsPerPage, selectedFilter, searchQuery);
+    getAndSetProducts(dispatch, 1, itemsPerPage, selectedFilter, searchQuery, sortType);
   };
 
   const handleOpenMobileSearch = () => {

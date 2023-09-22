@@ -4,6 +4,7 @@
 import $api from '../../http';
 import { ProductModel } from '../../models/ProductModel';
 import { CartModel } from '../../models/CartModel';
+import { SortType } from '../../types/SortType';
 
 export default class ProductService {
   static async getProducts() {
@@ -12,13 +13,20 @@ export default class ProductService {
     return response.data;
   }
 
-  static async getProductsChunk(page: number, itemsPerPage: number, filter: string, searchQuery: string): Promise<ProductModel[]> {
+  static async getProductsChunk(
+    page: number,
+    itemsPerPage: number,
+    filter: string,
+    searchQuery: string,
+    sortType: SortType,
+  ): Promise<ProductModel[]> {
     const response = await $api.get('/products/chunk', {
       params: {
         page,
         itemsPerPage,
         filter,
         searchQuery,
+        sortType,
       },
     });
 

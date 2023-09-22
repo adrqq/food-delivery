@@ -69,16 +69,11 @@
   }
 
   &__portfolio {
-    // max-width: $container-max-width;
     width: 100%;
-    // margin: 0 auto;
     padding: $gutter / 2;
-
     display: flex;
     flex-wrap: wrap;
-    // max-width: 1400px;
     gap: 24px;
-
     justify-content: space-between;
   }
 
@@ -138,238 +133,23 @@
     &__text {
       font-style: normal;
       font-weight: 700;
-      font-size: 27px;
+      font-size: 28px;
       color: #000;
-      margin-top: 16px;
+      white-space: nowrap;
+      margin-bottom: auto;
 
       @include onMobileMini {
         font-size: 20px;
       }
     }
-  }
 
-  &__selector {
-    &__wrapper {
+    &__selectors {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    &__description {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      color: $main-font-color-light;
-      margin-left: 6px;
+      gap: 20px;
     }
   }
 }
 
-.menu__selector {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  &__searchbox {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    &__select {
-      &__menu {
-        width: 200px;
-
-        &__active {
-          border: 1px solid $border-color;
-        }
-      }
-
-      &__btn {
-        display: flex;
-        align-items: center;
-        height: 24px;
-        padding: 14px 10px;
-        background-color: $bg-white;
-        box-shadow: $box-shadow;
-        border: 1px solid $border-color-gray;
-        justify-content: space-between;
-        cursor: pointer;
-        border-radius: 8px;
-
-        &__active {
-          border: 1px solid $main-orange;
-        }
-      }
-
-      &__sBtn {
-        &__text {
-          font-style: normal;
-          font-weight: 600;
-          font-size: 12px;
-          line-height: 100%;
-          color: #000;
-          white-space: nowrap;
-
-          @include onTablet {
-            font-size: 14px;
-          }
-
-          @include onDesktop {
-            font-size: 14px;
-          }
-        }
-      }
-
-      &__icon {
-        display: flex;
-        background-image: url('../../../../images/logos/arrow-down-black.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 24px;
-        height: 24px;
-        transform: rotate(180deg);
-        transition: 0.3s transform;
-
-        &__active {
-          transform: rotate(0deg)
-        }
-      }
-
-      &__options {
-        position: absolute;
-        padding: 10px;
-        background-color: $bg-white;
-        box-shadow: $box-shadow;
-        border-radius: 8px;
-        margin-top: 10px;
-        width: 200px;
-        z-index: 10;
-
-        &__option {
-          display: flex;
-          align-items: center;
-          gap: 9px;
-          cursor: pointer;
-          padding: 10px;
-          border-radius: 8px;
-          width: 100%;
-
-          &:hover {
-            background-color: $base-color-white;
-          }
-
-          &__text {
-            font-family: $default-font;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 100%;
-            color: #000;
-
-            &__active {
-              color: $main-orange;
-            }
-          }
-
-          &__card_icon {
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 24px;
-            height: 24px;
-
-            &__clock {
-              background-image: url('../../../../images/logos/arrow-down.svg');
-
-              &__active {
-                background-image: url('../../../../images/logos/arrow-down.svg');
-                background-color: pink;
-                border-radius: 20%;
-                padding: 15px;
-              }
-            }
-
-            &__timer {
-              background-image: url('../../../../images/logos/arrow-up.svg');
-
-              &__active {
-                background-image: url('../../../../images/logos/arrow-up.svg');
-                background-color: teal;
-                border-radius: 20%;
-                padding: 15px;
-              }
-            }
-
-            &__stats {
-              background-image: url('../../../../images/logos/increasing-trend.svg');
-
-              &__active {
-                background-image: url('../../../../images/logos/increasing-trend.svg');
-                background-color: rgb(202, 241, 86);
-                border-radius: 20%;
-                padding: 15px;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &__h2 {
-      font-family: $default-font;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 100%;
-      color: #fff;
-    }
-
-    &__text {
-      font-family: $default-font;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 100%;
-      color: $main-font-color-light;
-    }
-
-    &__input {
-      width: 100%;
-      background-color: $base-color;
-      border: 1px solid $border-color;
-      border-radius: 8px;
-      background: url('../../../../images/logos/search.svg') no-repeat scroll 98% 50%;
-      background-size: 28px 28px;
-      padding: 16px;
-      display: flex;
-      font-family: $default-font;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 100%;
-      color: #FFF;
-
-      &:hover {
-        border: 1px solid $main-orange;
-      }
-
-      &__specification {
-        width: 100%;
-        border: 1px solid $border-color;
-        border-radius: 8px;
-        background-color: $base-color-dark;
-        padding: 16px;
-        display: flex;
-        font-family: $default-font;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 13px;
-        line-height: 100%;
-        color: #FFF;
-
-        &:hover {
-          border: 1px solid $main-orange;
-        }
-      }
-    }
-  }
+.select_wrapper {
+  // width: 80px;
 }

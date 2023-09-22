@@ -12,8 +12,8 @@ import plusPeople from '../../images/logos/plus-people.svg';
 import arrowRight from '../../images/logos/arrow-oval-right-white.svg';
 import manRight from '../../images/logos/man-right.svg';
 import exitDoor from '../../images/logos/exit-door.svg';
-import { Stage } from '../../types/products';
-import { RegistrationErrorType } from '../../types/registrationErrorType';
+import { Stage } from '../../types/Products';
+import { RegistrationErrorType } from '../../types/RegistrationErrorType';
 import { Example } from '../../hooks';
 import {
   login,

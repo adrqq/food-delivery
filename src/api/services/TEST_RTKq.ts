@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // import { EndpointBuilder } from '@reduxjs/toolkit/dist/query/endpointDefinitions';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { ProductCategory } from '../../types/products';
+import { ProductCategory } from '../../types/Products';
 import { ProductModel } from '../../models/ProductModel';
 
 export const productsAPI = createApi({

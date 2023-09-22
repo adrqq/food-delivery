@@ -1,28 +1,22 @@
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import s from './MenuPage.module.scss';
 import { Menu } from './components/Menu';
-import { Order } from './components/Order';
-// import productCardLogo from '../../images/logos/product_item-logo';
 import { Example } from '../../hooks';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { calculateCartInfo } from '../../features/products/productsSlice';
 
 import {
-  setOrderMenuOpen,
   setPagePath,
 } from '../../features/main/mainSlice';
 
-import { SelectedPage } from '../../types/selectedPage';
 import { Direction } from '../../components/Direction';
 import { PagePath } from '../../types/PagePath';
 import { AddedNotification } from '../../modals/AddedNotification';
 
 export const MenuPage: React.FC = () => {
-  const { isMobile, isMobileMini } = Example();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 

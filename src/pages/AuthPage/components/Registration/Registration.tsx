@@ -14,9 +14,9 @@ import facebookLogo from '../../../../images/logos/facebook-logo.svg';
 import exitDoor from '../../../../images/logos/exit-door.svg';
 import plusPeople from '../../../../images/logos/plus-people.svg';
 import arrowRight from '../../../../images/logos/arrow-oval-right-white.svg';
-import { Stage } from '../../../../types/products';
+import { Stage } from '../../../../types/Products';
 import { setLocalStorageCart } from '../../../../features/products/productsSlice';
-import { RegistrationErrorType } from '../../../../types/registrationErrorType';
+import { RegistrationErrorType } from '../../../../types/RegistrationErrorType';
 import {
   registration,
   setRegistrationErrorType,

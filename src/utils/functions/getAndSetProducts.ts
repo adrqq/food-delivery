@@ -1,26 +1,29 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable react-hooks/rules-of-hooks */
+import { Dispatch } from '@reduxjs/toolkit';
 import ProductService from '../../api/services/ProductService';
 import {
   getProductsStart,
   getProductsSuccess,
   getProductsFailure,
   setProductsLength,
-  setProductImage,
   removeError,
+  setProductImages,
 } from '../../features/products/productsSlice';
-import { ErrorType } from '../../types/products';
+import { ErrorType } from '../../types/Products';
 import { ProductModel } from '../../models/ProductModel';
+import { SortType } from '../../types/SortType';
 
 export const getAndSetProducts = async (
-  dispatch: any,
+  dispatch: Dispatch,
   currentPage: number,
   itemsPerPage: number,
   selectedFilter: string,
   searchQuery: string,
+  sortType: SortType,
 ) => {
-  console.log('selectedFilter', selectedFilter);
+  console.log('CALLING GET AND SET PRODUCTS !!!!!!!!!!!!!!!!!!!!');
   dispatch(getProductsStart());
 
   try {
@@ -29,9 +32,9 @@ export const getAndSetProducts = async (
       itemsPerPage,
       selectedFilter,
       searchQuery,
+      sortType,
     )
       .then(async (data: ProductModel[]) => {
-        // eslint-disable-next-line no-console
         console.log(data);
 
         const calculatedData = data.map((item: ProductModel) => {
@@ -56,24 +59,30 @@ export const getAndSetProducts = async (
 
         return data;
       })
-      .then((data) => {
-        data.map(async (item: ProductModel) => {
-          const { id } = item;
+      .then(async (data) => {
+        const fetchProductImages = async (imgData: any) => {
+          const imageRequests = imgData.map(async (item: ProductModel) => {
+            const { id } = item;
+            const response = await ProductService.getProductImage(id);
+            const uint8Array = new Uint8Array(response.img.data.data);
+            const byteArray = Array.from(uint8Array);
+            const base64String = btoa(byteArray.map((item64) => String.fromCharCode(item64)).join(''));
 
-          // if (item.image) {
-          //   return;
-          // }
+            return { productId: id, imageData: base64String };
+          });
 
-          const response = await ProductService.getProductImage(id);
+          const productImages = await Promise.all(imageRequests);
 
-          console.log('id', id);
+          return productImages;
+        };
 
-          const uint8Array = new Uint8Array(response.img.data.data);
-          const byteArray = Array.from(uint8Array);
-          const base64String = btoa(byteArray.map((item64) => String.fromCharCode(item64)).join(''));
+        const updateProductImages = async () => {
+          const productImages = await fetchProductImages(data);
 
-          dispatch(setProductImage({ productId: id, imageData: base64String }));
-        });
+          dispatch(setProductImages(productImages));
+        };
+
+        await updateProductImages(); // Trigger the image update
 
         return data;
       })

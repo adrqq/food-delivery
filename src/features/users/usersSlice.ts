@@ -8,7 +8,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { IUser } from '../../models/IUser';
 import { AuthResponse } from '../../models/response/AuthResponse';
 import AuthService from '../../api/services/AuthService';
-import { RegistrationErrorType } from '../../types/registrationErrorType';
+import { RegistrationErrorType } from '../../types/RegistrationErrorType';
 
 const initialState = {
   user: {} as IUser,

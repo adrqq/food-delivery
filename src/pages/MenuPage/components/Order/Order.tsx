@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable max-len */
 // import classNames from "classnames";
@@ -6,29 +7,21 @@
 import { useEffect, useState } from 'react';
 import { OrderItem } from '../../../../components/OrderItem';
 import s from './Order.module.scss';
-// import { Example } from '../../../../hooks';
 import { useAppSelector, useAppDispatch } from '../../../../app/hooks';
 import { setOrderMenuOpen, setPaymentStage } from '../../../../features/main/mainSlice';
 import { ProductModel } from '../../../../models/ProductModel';
 
 export const Order: React.FC = () => {
-  // const { isMobile } = Example();
-  // setOrderMenuOpen(true);
-
   const dispatch = useAppDispatch();
   const isOrderMenuOpen = useAppSelector((state) => state.main.isOrderMenuOpen);
   const localStorageCart = useAppSelector((state) => state.products.localStorageCart);
 
   const handleOrderMenuClose = () => {
-    // eslint-disable-next-line no-console
     console.log(isOrderMenuOpen);
     dispatch(setOrderMenuOpen(false));
 
-    // eslint-disable-next-line no-console
     console.log(isOrderMenuOpen);
   };
-
-  // eslint-disable-next-line no-console
 
   const handlePaymentOpener = () => {
     document.body.style.position = 'fixed';
@@ -39,7 +32,6 @@ export const Order: React.FC = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log(localStorageCart);
   }, []);
 

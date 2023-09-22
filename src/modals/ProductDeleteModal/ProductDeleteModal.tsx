@@ -4,11 +4,10 @@
 import React from 'react';
 import s from './ProductDeleteModal.module.scss';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { logout } from '../../features/users/usersSlice';
 import { setIsDeleteProductModalOpen, setIsLogOutModalOpen } from '../../features/main/mainSlice';
 import ProductService from '../../api/services/ProductService';
 import { ProductModel } from '../../models/ProductModel';
-import { getAndSetProducts } from '../../utils/functions/getAndSetProducts';
+import { setCallProductsUpdate } from '../../features/products/productsSlice';
 
 type Props = {
   product: ProductModel;
@@ -17,18 +16,13 @@ type Props = {
 export const ProductDeleteModal: React.FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch();
 
-  const currentPage = useAppSelector((state) => state.products.currentPage);
-  const itemsPerPage = useAppSelector((state) => state.products.itemsPerPage);
-  const selectedFilter = useAppSelector((state) => state.products.selectedFilter);
-  const searchQuery = useAppSelector((state) => state.products.searchQuery);
-
   const handleDeleteProduct = async () => {
     try {
       await ProductService.deleteProduct(product.id);
 
       dispatch(setIsDeleteProductModalOpen(false));
 
-      getAndSetProducts(dispatch, currentPage, itemsPerPage, selectedFilter, searchQuery);
+      dispatch(setCallProductsUpdate());
 
       console.log('Product deleted');
     } catch (error) {
