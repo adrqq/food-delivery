@@ -20,7 +20,8 @@ body {
 .app {
   background-color: $base-color-white;
   min-height: 100vh;
-  min-width: 100vw;
+  position: relative;
+  /* Adjusted min-height */
   font-family: 'Barlow', sans-serif;
 
   &__content {

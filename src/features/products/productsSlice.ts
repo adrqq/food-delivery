@@ -23,7 +23,7 @@ const initialState = {
   error: [] as ErrorType[],
   errorText: '',
   selectedFilter: ProductCategory.ALL,
-  itemsPerPage: 16,
+  itemsPerPage: 6,
   currentPage: 1,
   productsLength: 0,
   searchQuery: '',

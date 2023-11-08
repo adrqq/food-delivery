@@ -4,7 +4,12 @@
 /* eslint-disable max-len */
 import React, { useState, KeyboardEvent } from 'react';
 import classNames from 'classnames';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Outlet,
+  Route,
+  Routes,
+  useNavigate,
+} from 'react-router-dom';
 import s from './AuthPage.module.scss';
 import googleLogo from '../../images/logos/google-logo.svg';
 import facebookLogo from '../../images/logos/facebook-logo.svg';
@@ -40,13 +45,9 @@ export const AuthPage = () => {
     <div
       className={s.container}
       id="container"
-    // onKeyDown={handleKeyDown}
     >
       <div className={s.auth}>
-        <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-        </Routes>
+        <Outlet />
       </div>
     </div>
   );

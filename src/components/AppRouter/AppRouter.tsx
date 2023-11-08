@@ -38,6 +38,13 @@ export const AppRouter: React.FC = () => {
       <Route path="/" element={<Navigate to={PagePath.MENU} replace />} />
       <Route path={PagePath.AUTH} element={<Navigate to={PagePath.LOGIN} />} />
 
+      <Route path={PagePath.AUTH} element={<AuthPage />}>
+        <Route path={PagePath.LOGIN} element={<Login />} />
+        <Route path={PagePath.REGISTRATION} element={<Registration />} />
+      </Route>
+
+      <Route path={PagePath.ACTIVATION} element={<ActivationPage />} />
+
       {/* Nested Layout Route */}
       <Route path="/" element={<Layout />}>
         <Route path={PagePath.MENU} element={<MenuPage />} />
