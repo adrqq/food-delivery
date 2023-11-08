@@ -4,13 +4,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:5000';
-// const BASE_URL = 'http://16.16.68.28:5000';
+import { API_URL } from '../utils/constants';
 
 const $api = axios.create({
   withCredentials: true,
-  baseURL: BASE_URL,
+  baseURL: API_URL,
 });
 
 $api.interceptors.request.use((config) => {
@@ -27,7 +25,7 @@ $api.interceptors.response.use((config) => config,
       originalRequest._isRetry = true;
 
       try {
-        const response = await axios.get(`${BASE_URL}/refresh`, { withCredentials: true });
+        const response = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
 
         localStorage.setItem('token', response.data.accessToken);
 

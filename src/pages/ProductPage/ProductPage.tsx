@@ -68,34 +68,6 @@ export const ProductPage: React.FC = () => {
     }
   };
 
-  const handleImageScale = (e: React.MouseEvent<HTMLImageElement>) => {
-    const imageEl = e.target as HTMLImageElement;
-
-    imageEl.style.transform = 'scale(1.3)';
-  };
-
-  const handleImageScaleOut = (e: React.MouseEvent<HTMLImageElement>) => {
-    const imageEl = e.target as HTMLImageElement;
-
-    imageEl.style.transform = 'scale(1)';
-  };
-
-  const handleImageMove = (e: React.MouseEvent) => {
-    const imageEl = e.target as HTMLImageElement;
-
-    const {
-      left,
-      top,
-      width,
-      height,
-    } = imageEl.getBoundingClientRect();
-
-    const x = (e.pageX - left) / width;
-    const y = (e.pageY - top) / height;
-
-    imageEl.style.transformOrigin = `${x * 100}% ${y * 100}%`;
-  };
-
   const findProductInCart = () => {
     if (!isUserAuth) {
       if (localStorage.getItem('cart') === null) {
@@ -144,9 +116,6 @@ export const ProductPage: React.FC = () => {
             className={s.product__image}
             src={`data:image/jpeg;base64,${image}`}
             alt="product"
-            onMouseEnter={handleImageScale}
-            onMouseLeave={handleImageScaleOut}
-            onMouseMove={handleImageMove}
           />
         </div>
 

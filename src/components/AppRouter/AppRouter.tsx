@@ -41,6 +41,21 @@ export const AppRouter: React.FC = () => {
       {/* Nested Layout Route */}
       <Route path="/" element={<Layout />}>
         <Route path={PagePath.MENU} element={<MenuPage />} />
+        <Route path={PagePath.PRODUCT} element={<ProductPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+
+      <Route path="/" element={<Layout isSidebar={false} />}>
+        <Route path={PagePath.SETTINGS} element={<SettingsPage />}>
+          <Route path=":security" element={<Security />} />
+          <Route path=":products-management" element={<ProductManagement />} />
+          <Route path=":products-management/edit-product" element={<EditProduct />} />
+          <Route path=":products-management/create-product" element={<CreateProduct />} />
+        </Route>
+
+        <Route path={PagePath.NOTIFICATIONS} element={<NotificationPage />} />
+
         <Route path={PagePath.DASHBOARD} element={<DashboardPage />} />
       </Route>
     </Routes>

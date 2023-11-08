@@ -2,13 +2,13 @@
 @import '../../../../utils/mixins.scss';
 
 .info {
+  height: 100%;
   grid-column: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 27px;
 }
-
 
 .order__info {
   border-radius: 8px;

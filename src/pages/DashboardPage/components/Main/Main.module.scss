@@ -2,6 +2,8 @@
 @import '../../../../utils/vars.scss';
 
 .dashboard__stats {
+  height: 100%;
+
   &__header {
     display: flex;
     flex-direction: row;
@@ -183,12 +185,13 @@
   width: 100%;
   border-radius: 8px;
   background-color: $bg-white;
-  max-height: 500px;
+  // max-height: 100%;
   border-collapse: collapse;
   margin-bottom: 28px;
   position: relative;
 
   &_wrapper {
+    height: 100%;
     padding: 28px 18px 0 18px;
   }
 
@@ -255,27 +258,20 @@
   }
 }
 
-.dashboard__container {
-  // display: flex;
-  // max-width: fit-content;
-  max-height: fit-content;
-  // max-width: fit-content;
-}
-
 .dashboard__table {
   border-collapse: collapse;
   width: 100%;
   overflow-x: auto;
   margin: 25px 0;
   font-size: 12px;
-  // width: 100%; 
   position: relative;
   min-width: max-content;
   border-collapse: separate;
 
   &__fixed {
     overflow-y: scroll;
-    max-height: 500px;
+    max-height: 60vh;
+
     position: relative;
     scrollbar-width: none;
     /* Firefox */
@@ -377,4 +373,8 @@
 
     }
   }
+}
+
+.container {
+  height: 100%;
 }
