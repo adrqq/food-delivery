@@ -12,9 +12,6 @@
     flex-direction: column;
   }
 
-  @include onMobileMini {
-    padding: 0;
-  }
 
   &__title {
     height: 28px;
@@ -76,11 +73,28 @@
 
   &__portfolio {
     width: 100%;
-    padding: $gutter / 2;
-    display: flex;
-    flex-wrap: wrap;
+    // padding: $gutter / 2;
+    display: grid;
+    // flex-wrap: wrap;
     gap: 24px;
     justify-content: space-between;
+
+    @media (max-width: 620px) {
+      grid-template-columns: auto;
+      
+    }
+
+    @media (min-width: 621px) and (max-width: 840px) {
+      grid-template-columns: auto auto;
+    }
+
+    @media (min-width: 841px) and (max-width: 1280px) {
+      grid-template-columns: auto auto auto;
+    }
+
+    @media (min-width: 1281px) {
+      grid-template-columns: auto auto auto auto;
+    }
   }
 
   &__message {
