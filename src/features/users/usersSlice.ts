@@ -65,7 +65,7 @@ export const registration = createAsyncThunk(
       if (response.status === 200) {
         localStorage.setItem('token', response.data.accessToken);
 
-        return response.data.user;
+        return response.data;
       }
 
       return response.data.user;

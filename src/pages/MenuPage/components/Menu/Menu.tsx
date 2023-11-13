@@ -73,7 +73,6 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
 
   return (
     <main className={s.menu__container}>
-
       <div>
         <div className={s.menu__functional}>
           <h1 className={s.menu__functional__text}>
@@ -87,7 +86,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                 options={['6', '12', '24']}
                 selectedOption={String(itemsPerPage)}
                 setSelectedOption={handlePerPageChange}
-                width="80px"
+                width="60px"
               />
             </div>
 
@@ -119,7 +118,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                 <>
                   {
                     products.length > 0 ? (
-                      <>
+                      <div className={s.menu__all}>
                         <div className={classNames(
                           s.menu__portfolio,
                         )}
@@ -131,8 +130,11 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                             />
                           ))}
                         </div>
-                        <Pagination />
-                      </>
+
+                        <div className={s.menu__pagination}>
+                          <Pagination />
+                        </div>
+                      </div>
                     ) : (
                       <div className={s.menu__message}>
                         <h1 className={s.menu__message__title}>

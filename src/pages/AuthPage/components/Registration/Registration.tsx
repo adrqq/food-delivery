@@ -34,7 +34,6 @@ export const Registration: React.FC = () => {
   const [isShowLoginPassword, setIsShowLoginPassword] = useState<boolean>(false);
   const [role, setRole] = useState('user');
 
-  const isLoginError = useAppSelector((state) => state.users.isLoginError);
   const registrationErrorType = useAppSelector((state) => state.users.registrationErrorType);
 
   const dispatch = useAppDispatch();

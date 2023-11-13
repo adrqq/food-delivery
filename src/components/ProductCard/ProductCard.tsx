@@ -6,40 +6,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import ProductService from '../../api/services/ProductService';
 import s from './ProductCard.module.scss';
 import { ProductModel } from '../../models/ProductModel';
 import { PagePath } from '../../types/PagePath';
-import productTEST from '../../images/food_photos/productTEST.png';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   calculateCartInfo,
-  setLocalStorageCart,
   setSelectedProduct,
-  setUserCart,
-  addProductToUserCart,
-  removeProductFromUserCart,
-  setIsProductsLoading,
-  setProductImage,
 } from '../../features/products/productsSlice';
 
-import likeIcon from '../../images/logos/heart-icon.svg';
-import minusIcon from '../../images/logos/minus-logo.svg';
-import plusIcon from '../../images/logos/plus-black.svg';
-import trashIcon from '../../images/logos/trash-icon.svg';
-
 import {
-  setProductModalOpen,
   setShowAddedNotification,
 } from '../../features/main/mainSlice';
-import { CartModel } from '../../models/CartModel';
-import { CartItemModel } from '../../models/CartItemModel';
+
 import { addProductToLocalCartUtil } from '../../utils/functions/addProductToLocalCartUtil';
 import { addProductToUserCartUtil } from '../../utils/functions/addProductToUserCartUtil';
-// import { decreaseLocalProductsCountUtil } from '../../utils/functions/decreaseLocalProductsCountUtil';
-// import { decreaseUserProductsCountUtil } from '../../utils/functions/decreaseUserProductsCountUtil';
-// import { removeProductFromLocalCartUtil } from '../../utils/functions/removeProductFromLocalCartUtil';
-// import { removeProductFromUserCartUtil } from '../../utils/functions/removeProductFromUserCart';
 import { PcAddButtons } from '../PcAddButtons';
 
 type Props = {
@@ -58,7 +39,6 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const image = images.find((item) => item.productId === product.id)?.imageData;
 
   const handleProductClick = async () => {
-    // eslint-disable-next-line no-console
     console.log('product clicked');
 
     dispatch(setSelectedProduct(product));

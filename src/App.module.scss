@@ -18,10 +18,11 @@ body {
 }
 
 .app {
-  background-color: $base-color-white;
   min-height: 100vh;
+  background-color: $base-color-white;
+  width: 100%;
   position: relative;
-  /* Adjusted min-height */
+
   font-family: 'Barlow', sans-serif;
 
   &__content {
