@@ -72,7 +72,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
   };
 
   return (
-    <main className={s.menu__container}>
+    <main className={s.menu}>
       <div>
         <div className={s.menu__functional}>
           <h1 className={s.menu__functional__text}>
@@ -118,7 +118,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                 <>
                   {
                     products.length > 0 ? (
-                      <div className={s.menu__all}>
+                      <div className={s.menu__contents}>
                         <div className={classNames(
                           s.menu__portfolio,
                         )}

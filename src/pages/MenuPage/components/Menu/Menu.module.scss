@@ -3,10 +3,14 @@
 
 .menu {
   display: flex;
-  justify-content: space-between;
   padding: 24px;
+  flex-direction: column;
 
-  &__pagination {}
+  &__contents {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
   @include onMobileMini {
     padding: 0;
@@ -70,12 +74,6 @@
     }
   }
 
-  &__all {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
   &__portfolio {
     width: 100%;
     padding: $gutter / 2;
@@ -113,16 +111,7 @@
       text-align: center;
     }
   }
-}
 
-.loader__wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.menu {
   &__slider {
     display: flex;
     gap: 20px;
@@ -156,6 +145,13 @@
       gap: 20px;
     }
   }
+}
+
+.loader__wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .select_wrapper {

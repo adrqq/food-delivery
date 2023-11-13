@@ -42,7 +42,10 @@ export const ProductCardCart: React.FC<Props> = ({ product }) => {
         className={s.product__card__delete__button}
         onClick={handleRemoveProductFromCart}
       >
-        <div className={s.product__card__delete__button__img} />
+        <div
+          aria-label="delete"
+          className={s.product__card__delete__button__img}
+        />
       </button>
 
       <div className={s.product__card__info__container}>
