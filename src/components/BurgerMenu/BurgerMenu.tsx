@@ -17,7 +17,6 @@ import grillLogo from '../Sidebar/assets/icons/grill.svg';
 import freshDrinksLogo from '../Sidebar/assets/icons/fresh-drink.svg';
 import soupLogo from '../Sidebar/assets/icons/soup.svg';
 import saladLogo from '../Sidebar/assets/icons/salad.svg';
-import coffeeLogo from '../Sidebar/assets/icons/coffee.svg';
 import hotDishesLogo from '../Sidebar/assets/icons/hot-dishes.svg';
 import appetizerLogo from '../Sidebar/assets/icons/appetizer.svg';
 import dessertLogo from '../Sidebar/assets/icons/dessert.svg';
