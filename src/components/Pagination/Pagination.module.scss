@@ -29,8 +29,6 @@
 
   &__page {
     box-sizing: border-box;
-    // width: 128px;
-    // height: 40px;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
@@ -56,17 +54,17 @@
 
   &__link {
     display: flex;
+    font-style: normal;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 30px;
-    color: $main-orange;
+    color: #000;
     transition: color 0, 5s;
-    font-style: normal;
-    font-weight: 600;
-    align-items: center;
-    justify-content: center;
   }
 
   &__list {
@@ -83,22 +81,16 @@
     transition: background-color 0.5s;
     border-radius: 8px;
 
+    &__active {
+      background-color: $main-orange;
+      color: $base-color-dark;
+      height: 100%;
+    }
 
     &_left_right {
       margin: 0 14px;
       border: 1px solid $border-color;
     }
-
-    // &:hover {
-    //   background-color: $main-orange;
-    // }
-  }
-
-  &__active {
-    background-color: $main-orange;
-    color: $base-color-dark;
-    border-radius: 8px;
-    height: 100%;
   }
 
   // &__disabled :hover {

@@ -1,0 +1,59 @@
+@import '../../utils/vars.scss';
+@import '../../utils/mixins.scss';
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.product_card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: $gutter;
+  height: 400px;
+  width: 100%;
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  flex-shrink: 0;
+  max-width: 600px;
+
+  animation: glow 2s infinite;
+}
+
+.product_card:hover {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+  animation: none;
+}
+
+@media (min-width: 600px) {
+  .product_card {
+    width: calc(50% - 12px);
+    /* Adjust the width for two cards in a row with a 12px gap */
+  }
+}
+
+@media (min-width: 900px) {
+  .product_card {
+    width: calc(33.33% - 24px);
+    /* Adjust the width for three cards in a row with a 12px gap */
+  }
+}
+
+@media (min-width: 1200px) {
+  .product_card {
+    width: calc(25% - 24px);
+    /* Adjust the width for four cards in a row with a 12px gap */
+  }
+}

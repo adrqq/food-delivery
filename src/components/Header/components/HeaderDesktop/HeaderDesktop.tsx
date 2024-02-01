@@ -189,6 +189,7 @@ export const HeaderDesktop: React.FC = () => {
               }}
             >
               <div
+                aria-label="phoneIcon"
                 className={`${s.header__desktop__logo__phone} ${s.header__desktop__logo}`}
               />
             </button>
@@ -262,6 +263,7 @@ export const HeaderDesktop: React.FC = () => {
               onClick={handleLikePageOpen}
             >
               <div
+                aria-label="likeIcon"
                 className={`${s.header__desktop__logo__like} ${s.header__desktop__logo}`}
               />
             </button>
@@ -350,6 +352,7 @@ export const HeaderDesktop: React.FC = () => {
               }}
             >
               <div
+                aria-label="humanIcon"
                 className={`${s.header__desktop__logo__human} ${s.header__desktop__logo}`}
               />
             </button>

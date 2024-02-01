@@ -3,7 +3,7 @@
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import classNames from 'classnames';
-import { Audio } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 import { useEffect, useState } from 'react';
 import { ProductCard } from '../../../../components/ProductCard';
@@ -18,6 +18,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { ErrorType, ProductCategory } from '../../../../types/Products';
 import { SortType } from '../../../../types/SortType';
 import { FilterSelect } from '../../../../components/FilterSelect';
+import { DummyProductCard } from '../../../../components/DummyProductCard';
 
 type Props = {
   isOrderMenuOpen: boolean,
@@ -31,17 +32,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
     selectedFilter,
     isProductsLoading,
     error,
-    itemsPerPage,
-    sortType,
   } = useAppSelector((state) => state.products);
-
-  const handlePerPageChange = (value: string) => {
-    dispatch(setItemsPerPage(Number(value)));
-  };
-
-  const handleSortTypeChange = (value: SortType) => {
-    dispatch(setSortTypeAction(value));
-  };
 
   const calculateTitleText = () => {
     switch (selectedFilter) {
@@ -73,67 +64,44 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
 
   return (
     <main className={s.menu}>
-      <div>
-        <div className={s.menu__functional}>
-          <h1 className={s.menu__functional__text}>
-            {calculateTitleText()}
-          </h1>
-
-          <div className={s.menu__functional__selectors}>
-            <div className={s.select_wrapper}>
-              <FilterSelect
-                title="Кількість"
-                options={['6', '12', '24']}
-                selectedOption={String(itemsPerPage)}
-                setSelectedOption={handlePerPageChange}
-                width="60px"
-              />
-            </div>
-
-            <div className={s.select_wrapper}>
-              <FilterSelect
-                title="Сортувати за"
-                options={[SortType.PRICE_ASC, SortType.PRICE_DESC, SortType.WEIGHT_ASC, SortType.WEIGHT_DESC, SortType.LIKES_COUNT]}
-                selectedOption={String(sortType)}
-                setSelectedOption={handleSortTypeChange}
-                width="140px"
-              />
-            </div>
-          </div>
-        </div>
+      <div className={s.menu__functional}>
+        <h1 className={s.menu__functional__text}>
+          {calculateTitleText()}
+        </h1>
       </div>
 
       {
         isProductsLoading ? (
-          <div className={s.loader__wrapper}>
-            <Audio
-              color="#EA7C69"
-              ariaLabel="loading"
-            />
+          <div className={s.menu__contents}>
+            <div className={s.menu__items}>
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+              <DummyProductCard />
+            </div>
           </div>
         ) : (
-          <>
+          <div className={s.menu__contents}>
             {
               !error.includes(ErrorType.SERVER_ERROR) ? (
                 <>
                   {
                     products.length > 0 ? (
-                      <div className={s.menu__contents}>
-                        <div className={classNames(
-                          s.menu__portfolio,
-                        )}
-                        >
-                          {products.map((product) => (
-                            <ProductCard
-                              key={product.id}
-                              product={product}
-                            />
-                          ))}
-                        </div>
+                      <div className={s.menu__items}>
+                        {products.map((product) => (
+                          <ProductCard
+                            key={product.id}
+                            product={product}
+                          />
+                        ))}
 
-                        <div className={s.menu__pagination}>
+                        {/* <div className={s.menu__pagination}>
                           <Pagination />
-                        </div>
+                        </div> */}
                       </div>
                     ) : (
                       <div className={s.menu__message}>
@@ -158,7 +126,7 @@ export const Menu: React.FC<Props> = ({ isOrderMenuOpen }) => {
                 </div>
               )
             }
-          </>
+          </div>
         )
       }
     </main>

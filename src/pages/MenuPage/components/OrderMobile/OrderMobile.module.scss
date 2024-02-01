@@ -193,7 +193,7 @@
       width: 90%;
       height: 40px;
       border-radius: 8px;
-      background-color: #da510f;
+      background-color: $ninja-yellow;
       position: sticky;
       bottom: 24px;
       border-bottom-left-radius: 8px;
@@ -222,7 +222,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: $base-color-white;
+    background-color: $base-color-gray;
     gap: 18px;
     box-shadow: 0 0 32px rgba(0, 0, 0, .1);
 
@@ -250,7 +250,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #da510f;
+      background-color: $ninja-yellow;
       padding: 6px 10px;
       border-radius: 8px;
 

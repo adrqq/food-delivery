@@ -2,25 +2,34 @@
 @import '../../utils/mixins.scss';
 
 .settings {
-  max-height: 100vh;
-  overflow: hidden;
+  background-color: $base-color-gray;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
-  @media (max-width: 1200px) {
-    max-height: 100%;
-    overflow: auto;
-  }
+  // max-height: 100vh;
+  // overflow: hidden;
 
-  @media (max-height: 700px) {
-    max-height: 100%;
-    overflow: auto;
-  }
+  // @include ofScrollBarStyle;
+
+  // @media (max-width: 1200px) {
+  //   max-height: 100%;
+  //   overflow: auto;
+  // }
+
+  // @media (max-height: 700px) {
+  //   max-height: 100%;
+  //   overflow: auto;
+  // }
 
   &__main {
+    height: calc(100vh - 70px - 58px - 80px);
     display: grid;
     grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: 1;
     gap: 24px;
-    box-sizing: border-box;
-    background-color: $base-color-white;
+    background-color: $base-color-gray;
     margin-top: 24px;
 
     @media (min-width: 1200px) {

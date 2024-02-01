@@ -1,15 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/void-dom-elements-no-children */
 /* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
-// import PhoneInput from 'react-phone-number-input';
 import s from './PaymentMobile.module.scss';
 import deliveryLogo from '../../images/logos/delivery-logo.svg';
 import ukraineIcon from '../../images/logos/flag-of-ukraine.png';
 import { PaymentItem } from './components/PaymentItem';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppSelector } from '../../app/hooks';
 
 enum SelectedMethod {
   CARD = 'Card',
@@ -28,14 +25,12 @@ export const PaymentMobile: React.FC = () => {
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [timeChoose, setTimeChoose] = useState<SelectedTime>(SelectedTime.AS_SOON);
   const [isTimeSelectorOpen, setIsTimeSelectorOpen] = useState(false);
-  const [numberValue, setNumberValue] = useState('');
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   const {
     isUserAuth,
-    user,
   } = useAppSelector(state => state.users);
 
   const {
@@ -83,7 +78,10 @@ export const PaymentMobile: React.FC = () => {
           className={s.payment__mobile__header__back}
           onClick={handlePaymentClose}
         >
-          <div className={s.payment__mobile__header__back__image} />
+          <div
+            aria-label="back"
+            className={s.payment__mobile__header__back__image}
+          />
         </button>
 
         <div className={s.payment__mobile__header__text}>
@@ -128,7 +126,7 @@ export const PaymentMobile: React.FC = () => {
                 <div className={s.payment__mobile__main__order__info__button__list}>
                   {isUserAuth ? (
                     <>
-                      {userCart.map((item, index) => (
+                      {userCart.map((item) => (
                         <PaymentItem
                           key={item.id}
                           product={item}
@@ -137,7 +135,7 @@ export const PaymentMobile: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      {localStorageCart.map((item, index) => (
+                      {localStorageCart.map((item) => (
                         <PaymentItem
                           key={item.id}
                           product={item}

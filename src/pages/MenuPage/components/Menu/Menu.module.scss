@@ -2,16 +2,26 @@
 @import '../../../../utils/vars.scss';
 
 .menu {
-  display: flex;
   padding: 24px;
-  flex-direction: column;
+  flex: 1;
 
-  &__contents {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+  @include onMobile {
+    padding: 12px;
   }
 
+  &__items {
+    display: flex;
+    justify-content: baseline;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (min-width: 600px) {
+    .menu__items {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
 
   &__title {
     height: 28px;
@@ -73,15 +83,13 @@
 
   &__portfolio {
     width: 100%;
-    // padding: $gutter / 2;
     display: grid;
-    // flex-wrap: wrap;
     gap: 24px;
     justify-content: space-between;
 
     @media (max-width: 620px) {
       grid-template-columns: auto;
-      
+
     }
 
     @media (min-width: 621px) and (max-width: 840px) {
@@ -98,14 +106,9 @@
   }
 
   &__message {
-    display: flex;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
-    flex-direction: column;
+    margin: auto 0;
     gap: 40px;
+    height: 100%;
 
     &__title {
       font-weight: 600;
@@ -159,13 +162,6 @@
       gap: 20px;
     }
   }
-}
-
-.loader__wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .select_wrapper {

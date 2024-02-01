@@ -22,8 +22,6 @@ import appetizerLogo from '../Sidebar/assets/icons/appetizer.svg';
 import dessertLogo from '../Sidebar/assets/icons/dessert.svg';
 import { ProductCategory } from '../../types/Products';
 import { setFilter } from '../../features/products/productsSlice';
-// import { logout } from '../../../../features/users/usersSlice';
-// import { calculateCartInfo } from '../../../../features/products/productsSlice';
 
 export const BurgerMenu: React.FC = () => {
   const [active, setActive] = useState<PagePath>(PagePath.MENU);

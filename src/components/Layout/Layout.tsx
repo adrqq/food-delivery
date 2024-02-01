@@ -21,24 +21,22 @@ export const Layout: FC<LayoutProps> = ({
       classNames(appStyle.app)
     }
     >
-      <div className={appStyle.app__wrapper}>
-        {isSidebar && (
-          <div className={appStyle.app__sidebar}>
-            <Sidebar />
-          </div>
-        )}
-
-        {isHeader && <Header />}
-
-        <div className={
-          classNames(appStyle.app__content, {
-            [s.layout__no_sidebar]: !isSidebar,
-            [s.layout__no_header]: !isHeader,
-          })
-        }
-        >
-          <Outlet />
+      {isSidebar && (
+        <div className={appStyle.app__sidebar}>
+          <Sidebar />
         </div>
+      )}
+
+      {isHeader && <Header />}
+
+      <div className={
+        classNames(appStyle.app__content, {
+          [s.layout__no_sidebar]: !isSidebar,
+          [s.layout__no_header]: !isHeader,
+        })
+      }
+      >
+        <Outlet />
       </div>
     </div>
   );

@@ -53,6 +53,8 @@ export const AppRouter: React.FC = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
 
+      <Route path={PagePath.SETTINGS} element={<Navigate to={PagePath.SETTINGS__SECURITY} />} />
+
       <Route path="/" element={<Layout isSidebar={false} />}>
         <Route path={PagePath.SETTINGS} element={<SettingsPage />}>
           <Route path=":security" element={<Security />} />
@@ -65,6 +67,33 @@ export const AppRouter: React.FC = () => {
 
         <Route path={PagePath.DASHBOARD} element={<DashboardPage />} />
       </Route>
+
+      <Route
+        path={PagePath.ORDER_MOBILE}
+        element={(
+          <div className={s.app}>
+            <OrderMobile />
+          </div>
+        )}
+      />
+
+      <Route
+        path={PagePath.PAYMENT_MOBILE}
+        element={(
+          <div className={s.app}>
+            <PaymentMobile />
+          </div>
+        )}
+      />
+
+      <Route
+        path="home/burger-menu"
+        element={(
+          <div className={s.app}>
+            <BurgerMenu />
+          </div>
+        )}
+      />
     </Routes>
   );
 };

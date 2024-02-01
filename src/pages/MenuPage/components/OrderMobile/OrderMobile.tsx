@@ -12,7 +12,6 @@ import { PagePath } from '../../../../types/PagePath';
 
 export const OrderMobile = () => {
   const [isCutlerySelected, setIsCutlerySelected] = useState(false);
-  // const countOfProducts = 1;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -28,10 +27,6 @@ export const OrderMobile = () => {
   const handleOrderMobileClose = () => {
     navigate(-1);
   };
-
-  // useEffect(() => {
-  //   dispatch(calculateCartInfo({ isUserAuth }));
-  // });
 
   const handleCutlerySelect = () => {
     setIsCutlerySelected(!isCutlerySelected);
@@ -49,7 +44,10 @@ export const OrderMobile = () => {
           className={s.order__mobile__header__back}
           onClick={handleOrderMobileClose}
         >
-          <div className={s.order__mobile__header__back__image} />
+          <div
+            aria-label="back"
+            className={s.order__mobile__header__back__image}
+          />
         </button>
 
         <div className={s.order__mobile__header__text}>

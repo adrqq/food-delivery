@@ -2,15 +2,23 @@
 @import '../../utils/vars.scss';
 
 .menu_page {
-  background-color: #f6f6f6;
+  height: 100%;
+  flex: 1;
   padding: 0 24px 0 24px;
   transition: 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
 
-  @include onMobileMini {
-    padding: 24px 0 0 0;
+  @include onMobile {
+    padding: 0;
   }
 
   &__main {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
     &_order_opener {
       position: fixed;
       bottom: 15px;

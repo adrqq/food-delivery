@@ -2,13 +2,10 @@
 @import '../../../../utils/mixins.scss';
 
 .editing__block {
-  height: 100%;
   border-radius: 8px;
   background-color: #fff;
-  width: auto;
-  max-height: calc(100vh - 70px - 58px - 80px);
-  min-height: 530px;
   overflow-y: scroll;
+  max-height: 100%;
 
   &::-webkit-scrollbar {
     display: none;

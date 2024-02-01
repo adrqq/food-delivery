@@ -37,8 +37,8 @@ export const MenuPage: React.FC = () => {
     )}
     >
       <AddedNotification />
-      <Direction />
       <div className={s.menu_page__main}>
+        <Direction />
         <Menu isOrderMenuOpen={isOrderMenuOpen} />
       </div>
     </div>

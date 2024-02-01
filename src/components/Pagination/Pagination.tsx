@@ -125,15 +125,17 @@ export const Pagination: React.FC = () => {
                   >
                     <button
                       type="button"
-                      className={s.pagination__button}
+                      className={classNames(
+                        s.pagination__button,
+                        {
+                          [s.pagination__button__active]: page === currentPage,
+                        },
+                      )}
                     >
                       <a
                         data-cy="pageLink"
                         className={classNames(
                           s.pagination__link,
-                          {
-                            [s.pagination__active]: page === currentPage,
-                          },
                         )}
                         href={`#${page}`}
                         data-page={page}

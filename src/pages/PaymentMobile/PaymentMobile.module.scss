@@ -19,7 +19,7 @@
       width: calc(100% - 48px);
       height: 40px;
       border-radius: 8px;
-      background-color: #da510f;
+      background-color: $ninja-yellow;
       bottom: 24px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
@@ -45,7 +45,7 @@
       gap: 11px;
 
       &__info {
-        background-color: $base-color-white;
+        background-color: $base-color-gray;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -133,7 +133,7 @@
           &__info {
             display: flex;
             align-items: center;
-            background-color: $base-color-white;
+            background-color: $base-color-gray;
             // border: 1px solid $border-color;
             border-right: none;
             padding: 10px;
@@ -307,7 +307,7 @@
               width: 100%;
 
               &:hover {
-                background-color: $base-color-white;
+                background-color: $base-color-gray;
               }
 
               &__text {
@@ -491,7 +491,6 @@
           }
 
           &__options {
-            // position: relative;
             padding: 10px;
             background-color: $bg-white;
             border: 1px solid $border-color-gray;
@@ -533,7 +532,6 @@
             }
 
             &__card__icon {
-              // background-image: url('../../images/logos/card-icon.svg');
               background-repeat: no-repeat;
               background-position: center;
               width: 24px;
@@ -577,21 +575,21 @@
         }
 
         &__input {
+          display: flex;
+          box-shadow: $box-shadow;
           width: 100%;
+          padding: 16px;
           background-color: $base-color;
           border: 1px solid $border-color-gray;
           border-radius: 8px;
           background: url('../../images/logos/search.svg') no-repeat scroll 98% 50%;
           background-size: 28px 28px;
-          padding: 16px;
-          display: flex;
           font-family: $default-font;
           font-style: normal;
           font-weight: 500;
           font-size: 18px;
           line-height: 100%;
           color: #000;
-          box-shadow: $box-shadow;
 
           &:hover {
             border: 1px solid $main-orange;
@@ -619,7 +617,6 @@
             &:hover {
               border: 1px solid $main-orange;
             }
-
           }
         }
       }
@@ -644,7 +641,6 @@
         align-items: center;
         gap: 10px;
         width: 100%;
-        // background-color: $base-color;
         padding: 11px;
         border-radius: 8px;
         border: 1px solid $border-color-gray;
@@ -657,7 +653,6 @@
 
 
         &__img {
-          // background-image: url('../../images/logos/delivery-logo.svg');
           width: 24px;
           height: 24px;
           background-repeat: no-repeat;
@@ -692,14 +687,12 @@
         border-radius: 8px;
         display: flex;
         flex-direction: column;
-        // align-items: center;
         justify-content: space-between;
         background-color: $default-bg;
         min-height: 50px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
         border: 1px solid #E0E0E0;
         display: flex;
-        // align-items: center;
         padding: 11px;
 
         &__active {
@@ -725,7 +718,6 @@
             border-bottom: $border-color 1px solid;
 
             &:first-child {
-              // border-top: none;
               border-top: $border-color 1px solid;
               margin-top: 12px;
             }
@@ -1037,7 +1029,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #da510f;
+      background-color: $ninja-yellow;
       padding: 6px 10px;
       border-radius: 8px;
 
@@ -1108,7 +1100,6 @@
   &__wrapper {
     display: flex;
     justify-content: flex-start;
-    // padding-right: 10px;
   }
 
   &__searchbox {}

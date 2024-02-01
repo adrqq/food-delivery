@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useMemo } from 'react';
 import { ProductModal } from './modals/ProductModal';
 import s from './App.module.scss';
-import { OrderSecondStage } from './pages/MenuPage/components/OrderSecondStage';
-import { PageLoader } from './components/PageLoader';
 
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { PagePath } from './types/PagePath';
@@ -22,7 +20,6 @@ import {
 import { getAndSetProducts } from './utils/functions/getAndSetProducts';
 
 import { checkAuth, setIsUsersLoading } from './features/users/usersSlice';
-import { Example } from './hooks';
 import { getAndSetUserCartUtil } from './utils/functions/getAndSetUserCartUtil';
 import { LogOutModal } from './modals/LogOutModal';
 import { AppRouter } from './components/AppRouter';
@@ -33,7 +30,6 @@ function App() {
 
   const {
     isUserAuth,
-    isUsersLoading,
     user,
   } = useAppSelector((state) => state.users);
 
@@ -119,7 +115,6 @@ function App() {
 
   return (
     <>
-      {isUsersLoading && <PageLoader />}
       {isProductModalOpen && <ProductModal />}
       {isLogOutModalOpen && <LogOutModal />}
       <AppRouter />

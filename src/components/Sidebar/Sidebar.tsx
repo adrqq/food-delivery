@@ -9,12 +9,10 @@ import s from './Sidebar.module.scss';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import { logout } from '../../features/users/usersSlice';
-import { SelectedPage } from '../../types/SelectedPage';
 import { ProductCategory } from '../../types/Products';
 
 import { setFilter } from '../../features/products/productsSlice';
 
-import { getAndSetProducts } from '../../utils/functions/getAndSetProducts';
 import { Example } from '../../hooks';
 import { PagePath } from '../../types/PagePath';
 
